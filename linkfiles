@@ -4,20 +4,20 @@ old_location="$HOME/.old_dots"
 location=$(pwd)
 
 mv_old(){
-	mv "$HOME/$1" "$old_location/$1"	
+	mv -v "$HOME/$1" "$old_location/$1"	
 }
 
 ln_new_file(){
-	ln -s "$location/$1" "$HOME/$1"
+	ln -sv "$location/$1" "$HOME/$1"
 }
 
-declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vim" ".Xscripts")
+declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts")
 declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar")
 
 
 echo "Moving existing files in ~/ to ~/.old_dots"
 
-mkdir "$old_location" "$old_location/.config"
+[[ ! -d "$old_location" ]] && mkdir "$old_location" "$old_location/.config"
 
 for f in "${link_files[@]}"; do
 	mv_old "$f"
