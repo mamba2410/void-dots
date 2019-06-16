@@ -1,0 +1,240 @@
+
+################################
+# General variables
+
+# Set the mod key, Mod1 is alt, Mod4 is super
+set $mod Mod4
+
+# Font for window titles.
+font Monospace 11 
+
+set $scripts $HOME/.Xscripts
+set $wallpaper_dir $HOME/user/Libraries/Wallpaper
+
+set $mode_system System (l) lock, (r) reboot, (Shift+s) shutdown
+
+# Colours for theme
+set_from_resource	$bg-color 			background
+set 				$bar-color			#404136
+set 				$inactive-bg-color  #282b22
+set_from_resource 	$text-color 		foreground
+set 				$urgent-bg-color    #8C7452
+
+# Workspace names
+set $w1 "1:"
+set $w2 "2:"
+set $w3 "3:"
+set $w4 "4:"
+set $w5 "5:"
+set $w6 "6: "
+set $w7 "7: "
+set $w8 "8: "
+set $w9 "9: "
+set $w10 "0:"
+
+# window colours
+#							border				background			text 		indicator	child-border
+client.focused =            $bg-color 	        $bg-color 			$text-color	$inactive-bg-color		$bg-color
+client.unfocused = 	    	$inactive-bg-color  $inactive-bg-color	$text-color	$inactive-bg-color		$bg-color
+client.focused_inactive =   $inactive-bg-color  $inactive-bg-color  $text-color $inactive-bg-color		$bg-color
+client.urgent =             $urgent-bg-color    $urgent-bg-color 	$text-color $inactive-bg-color		$bg-color
+client.placeholder=         $inactive-bg-color  $inactive-bg-color	$text-color	$inactive-bg-color		$bg-color
+
+###############################
+# executes and checks
+
+for_window [class="Spotify"] move to workspace $w10
+
+for_window [class=^.*] border pixel 0
+
+gaps inner 6
+gaps outer 8
+
+# custom executes
+exec_always feh --bg-scale $wallpaper_dir/wallpaper.png
+exec_always killall compton; compton -f
+exec_always --no-startup-id $scripts/launch_polybar.sh
+
+###############################
+# keybinds
+
+bindsym $mod+a exec "bash $scripts/workspace_3.sh"
+#bindsym $mod+Shift+a exec
+
+#bindsym $mod+b exec
+#bindsym $mod+Sgift+b exec
+
+#bindsym $mod+c exec
+bindsym $mod+Shift+c reload
+
+bindsym $mod+d exec rofi -show
+#bindsym $mod+d exec "bash $scripts/start_rofi.sh"
+#bindsym $mod+Shift+d exec
+
+bindsym $mod+e layout toggle split
+#bindsym $mod+Shift+e mode "$mode_system"
+bindsym $mod+Shift+e exec $scripts/power_menu.sh
+
+bindsym $mod+f exec firefox
+bindsym $mod+Shift+f fullscreen toggle
+
+#bindsym $mod+g exec
+#bindsym $mod+Shift+g exec
+
+bindsym $mod+h focus left
+bindsym $mod+Shift+h move left
+
+bindsym $mod+i split v
+#bindsym $mod+Shift+i exec 
+
+bindsym $mod+j focus down
+bindsym $mod+Shift+j move down
+
+bindsym $mod+k focus up
+bindsym $mod+Shift+k move up
+
+bindsym $mod+l focus right
+bindsym $mod+Shift+l move right
+
+bindsym $mod+m move workspace to output left
+bindsym $mod+Shift+m mode "move_float"
+
+#bindsym $mod+n exec nautilus
+#bindsym $mod+Shift+n exec
+
+#bindsym $mod+o exec
+#bindsym $mod+shift+o exec "bash $scripts/w3"
+
+#bindsym $mod+p exec 
+bindsym $mod+Shift+p exec spotify
+
+#bindsym $mod+q exec
+bindsym $mod+Shift+q kill
+
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r restart
+
+#bindsym $mod+s layout stacking
+#bindsym $mod+Shift+s exec
+
+bindsym $mod+u split h
+#bindsym $mod+Shift+u exec
+
+bindsym $mod+w layout tabbed
+#bindsym $mod+Shift+w exec
+
+#bindsym $mod+x exec
+bindsym $mod+Shift+x exec "bash $scripts/lock_screen.sh"
+
+#bindsym $mod+y exec
+#bindsym $mod+Shift+x exec
+
+#bindsym $mod+z exec
+#bindsym $mod+Shift+z exec
+
+
+bindsym $mod+1 workspace $w1
+bindsym $mod+Shift+1 move container to workspace $w1
+
+bindsym $mod+2 workspace $w2
+bindsym $mod+Shift+2 move container to workspace $w2
+
+bindsym $mod+3 workspace $w3
+bindsym $mod+Shift+3 move container to workspace $w3
+
+bindsym $mod+4 workspace $w4
+bindsym $mod+Shift+4 move container to workspace $w4
+
+bindsym $mod+5 workspace $w5
+bindsym $mod+Shift+5 move container to workspace $w5
+
+bindsym $mod+6 workspace $w6
+bindsym $mod+Shift+6 move container to workspace $w6
+
+bindsym $mod+7 workspace $w7
+bindsym $mod+Shift+7 move container to workspace $w7
+
+bindsym $mod+8 workspace $w8
+bindsym $mod+Shift+8 move container to workspace $w8
+
+bindsym $mod+9 workspace $w9
+bindsym $mod+Shift+9 move container to workspace $w9
+
+bindsym $mod+0 workspace $w10
+bindsym $mod+Shift+0 move container to workspace $w10
+
+
+bindsym $mod+Return exec $TERMINAL
+#bindsym $mod+Shift+Return exec
+
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+Left focus left
+bindsym $mod+Shift+Left move left
+
+bindsym $mod+Down focus down
+bindsym $mod+Shift+Down move down
+
+bindsym $mod+Up focus up
+bindsym $mod+Shift+Up move up
+
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Right move right
+
+bindsym --release Print exec "bash $scripts/screenshot_multi.sh"
+bindsym --release shift+Print exec "bash $scripts/screenshot_select.sh"
+
+
+###############################
+# Modes
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id "bash $scripts/lock_screen_3.sh", mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym r exec --no-startup-id sudo shutdown -r now, mode "default"
+    bindsym Shift+s exec --no-startup-id sudo shutdown -h now, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "move_float" {
+	bindsym h move left 10px
+	bindsym j move down 10px
+	bindsym k move up 10px
+	bindsym l move right 10px
+
+	bindsym Left move left 10px
+	bindsym Down move down 10px
+	bindsym Up move up 10px
+	bindsym Right move right 10px
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}

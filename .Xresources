@@ -1,0 +1,47 @@
+
+!################## Colours used for X programs #################
+
+! special
+*.foreground:   #d0c9b2
+*.background:   #171814
+*.cursorColor:  #d0c9b2
+
+! black
+*.color0:       #171814
+*.color8:       #d0c9b2
+
+! red
+*.color1:       #b46f59
+*.color9:       #ba813e
+
+! green
+*.color2:       #938bad
+*.color10:      #ab8196
+
+! yellow
+*.color3:       #d2ba64
+*.color11:      #e3d6a8
+
+! blue
+*.color4:       #969f78
+*.color12:      #a9bf8a
+
+! magenta
+*.color5:       #9d8051
+*.color13:      #bd995d
+
+! cyan
+*.color6:       #6aa791
+*.color14:      #9fb25b
+
+! white
+*.color7:       #706e5f
+*.color15:      #9f9b87
+
+
+
+
+
+
+
+

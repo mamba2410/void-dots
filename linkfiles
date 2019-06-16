@@ -1,0 +1,37 @@
+#!/bin/bash
+
+old_location="$HOME/.old_dots"
+location=$(pwd)
+
+mv_old(){
+	mv "$HOME/$1" "$old_location/$1"	
+}
+
+ln_new_file(){
+	ln -s "$location/$1" "$HOME/$1"
+}
+
+declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vim" ".Xscripts")
+declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar")
+
+
+echo "Moving existing files in ~/ to ~/.old_dots"
+
+mkdir "$old_location" "$old_location/.config"
+
+for f in "${link_files[@]}"; do
+	mv_old "$f"
+done
+for f in "${link_conf_files[@]}"; do
+	mv_old ".config/$f"
+done
+
+
+echo "Creating symlinks"
+
+for f in "${link_files[@]}"; do
+	ln_new_file "$f"
+done
+for f in "${link_conf_files[@]}"; do
+	ln_new_file ".config/$f"
+done
