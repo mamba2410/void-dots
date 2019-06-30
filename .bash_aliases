@@ -5,10 +5,13 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias la='ls -Agoh --time-style=+%d-%m'
 alias ll='ls -Alh'
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 alias v="vim"
 alias suvi="sudo vim"
 alias md="mkdir -p"
+
 alias sz="sudo zzz"
 alias sZ="sudo ZZZ"
 
@@ -23,6 +26,7 @@ alias gb="git branch"
 # Distro-specific
 alias sxi="sudo xbps-install"
 alias sxr="sudo xbps-remove"
+alias xq="xbps-query"
 
 # Lazy cds
 alias cdmu="cd ~/user/Mounts/Memstick/University-Work"

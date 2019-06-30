@@ -1,4 +1,4 @@
-IMAGE=$HOME/.tmp/i3lock.png
+IMAGE=$HOME/.i3lock.png
 SCREENSHOT="scrot $IMAGE" # 0.46s
 
 # Alternate screenshot method with imagemagick. NOTE: it is much slower

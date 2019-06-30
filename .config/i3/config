@@ -21,16 +21,16 @@ set_from_resource 	$text-color 		foreground
 set 				$urgent-bg-color    #8C7452
 
 # Workspace names
-set $w1 "1:"
-set $w2 "2:"
-set $w3 "3:"
-set $w4 "4:"
-set $w5 "5:"
-set $w6 "6: "
-set $w7 "7: "
-set $w8 "8: "
-set $w9 "9: "
-set $w10 "0:"
+set $w1 "1:"
+set $w2 "2:"
+set $w3 "3:"
+set $w4 "4:"
+set $w5 "5:"
+set $w6 "6:"
+set $w7 "7:"
+set $w8 "8:"
+set $w9 "9:"
+set $w10 "0:"
 
 # window colours
 #							border				background			text 		indicator	child-border
@@ -182,8 +182,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Right focus right
 bindsym $mod+Shift+Right move right
 
-bindsym --release Print exec "bash $scripts/screenshot_multi.sh"
-bindsym --release shift+Print exec "bash $scripts/screenshot_select.sh"
+bindsym --release Print exec "$scripts/screenshot.sh multi" 
+bindsym --release shift+Print exec "$scripts/screenshot.sh select" 
 
 
 ###############################
