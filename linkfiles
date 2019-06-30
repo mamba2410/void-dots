@@ -22,6 +22,8 @@ echo "Moving existing files in ~/ to ~/.old_dots"
 for f in "${link_files[@]}"; do
 	mv_old "$f"
 done
+
+[[ ! -d "$HOME/.config" ]] && mkdir "$HOME/.config"
 for f in "${link_conf_files[@]}"; do
 	mv_old ".config/$f"
 done
