@@ -42,6 +42,9 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 14)\]\u\[$(tput s
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+if [ -f ~/.bash_cd ]; then
+	. ~/.bash_cd
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

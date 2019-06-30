@@ -29,7 +29,6 @@ alias sxr="sudo xbps-remove"
 alias xq="xbps-query"
 
 # Lazy cds
-alias cdmu="cd ~/user/Mounts/Memstick/University-Work"
-alias cddu="cd ~/user/Mounts/Data/Callum/Documents-Clean/University-Work"
 alias ..="cd .."
 alias ...="cd ../.."
+
