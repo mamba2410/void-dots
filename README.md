@@ -1,6 +1,6 @@
 <h1>Dotfiles for my linux system</h1>
 
-Dotfiles for my Void linux system.
+Dotfiles for my Void\* linux system.
 
 WM: i3-gaps
 Compositor: Compton
@@ -8,6 +8,7 @@ Bar: Polybar
 Notifications: Dunst
 Menus: Rofi
 Editor: Neovim
+Lock Screen: betterlockscreen
 
 I'm fairly new to ricing and not a master at Linux so let me know if I'm doing anything completely wrong.
 
@@ -17,4 +18,8 @@ Alternatively, put the repo anywhere you like and run <code>linkfiles</code> fro
 
 <code>linkfiles</code> moves old dotfiles that this repo would replace to a new directory and symlinks the dots in this repo to where they should be.
 <code>makedirs</code> creates a directory tree which I think makes more sense and leads to a cleaner <code>/home/$USER</code>.
+<code>gen.sh</code> moves the git repo to <code>~/user/*reponame*/</code> and runs the scripts above.
 
+\* Included are/will be branches for other distros, like raspbian.
+The raspbian branch is similar, but removes most of the the X components, like i3, polybar etc.
+I haven't figured out what to do with it yet, but it's mainly so that I can have consistent aliases/shell prompts across the systems.

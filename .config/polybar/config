@@ -58,6 +58,7 @@ tray-padding = 2
 tray-background = ${colors.background}
 
 wm-restack = i3
+
 ; true -> i3-gaps ignores it
 ; false -> i3-gaps goes around it
 override-redirect = false
@@ -103,48 +104,6 @@ tray-background = ${colors.background}
 
 wm-restack = i3
 override-redirect = false
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-################################################# SCREENHOME ###########################################################
-[bar/screenhome]
-monitor = ${env:MONITOR:DP-1}
-width = 80%
-height = 24
-override-redirect = true
-offset-x = 10%
-offset-y = 0.1%
-radius = 0
-fixed-center = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
-line-color = #f00
-
-wm-restack = i3
-
-enable-ipc = true
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = ${fonts.font-0}
-font-1 = ${fonts.font-1}
-font-2 = ${fonts.font-2}
-
-modules-left = i3
-modules-center = date
-modules-right = volume memory cpu networkc filesystem 
-
-tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -229,6 +188,7 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+
 ################################################# CPU ###########################################################
 [module/cpu]
 type = internal/cpu
@@ -257,42 +217,28 @@ type = internal/network
 interface = ${eths.net-1}
 interval = 5.0
 format-connected-underline = #2a5a57
-format-connected-prefix = "IP "
+format-connected-prefix = "IP "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-################################################# NETWORKC ###########################################################
-[module/networkc]
-type = custom/ipc
-
-format-underline = #915922
-
-hook-0 ="~/.Xscripts/network_module.sh 0"
-hook-1 ="~/.Xscripts/network_module.sh 1"
-
-; For some reason, this array starts at 1, so initial=1 activates hook-0
-initial = 1
-
-click-left = polybar-msg -p %pid% hook networkc 1
-click-right = polybar-msg -p %pid% hook networkc 2
 
 ################################################# DATE ###########################################################
 [module/date]
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date=
+date-alt="%d/%m/%Y"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time="%H:%M"
+time-alt="%H:%M:%S"
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-format-underline = #7d3447
+format-prefix= 
+format-prefix-foreground=${colors.foreground}
+format-underline=#7d3447
 
-label = %date% %time%
+label=%date% %time%
 
 ################################################# GLOBAL/WM ###########################################################
 [global/wm]

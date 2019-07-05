@@ -124,7 +124,7 @@ bindsym $mod+w layout tabbed
 #bindsym $mod+Shift+w exec
 
 #bindsym $mod+x exec
-bindsym $mod+Shift+x exec "bash $scripts/lock_screen.sh"
+bindsym $mod+Shift+x exec betterlockscreen -l dimblur 
 
 #bindsym $mod+y exec
 #bindsym $mod+Shift+x exec
