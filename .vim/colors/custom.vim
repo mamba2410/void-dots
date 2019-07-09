@@ -24,14 +24,14 @@ hi lCursor	cterm=NONE		ctermfg=bg	ctermbg=fg   	guifg=fg	guibg=bg
 " Since t_Co=16 is set, can use all 16 Xresources colours
 " Note: color0 should be reserved for background, and color8 is reserved for
 " foreground in Xresources
-hi Comment    cterm=NONE ctermfg=7	gui=NONE guifg=red2
-hi Constant   cterm=NONE ctermfg=4	gui=NONE guifg=green3
-hi Identifier cterm=NONE ctermfg=9	gui=NONE guifg=cyan4
-hi Operator	  cterm=NONE ctermfg=3
-hi PreProc    cterm=NONE ctermfg=15	gui=NONE guifg=magenta3
-hi Special    cterm=NONE ctermfg=14	gui=NONE guifg=deeppink
-hi Statement  cterm=bold ctermfg=5	gui=bold guifg=blue
-hi Type	      cterm=NONE ctermfg=1	gui=bold guifg=blue
+hi Comment    	cterm=NONE ctermfg=7	gui=NONE guifg=red2
+hi Constant  	cterm=NONE ctermfg=4	gui=NONE guifg=green3
+hi Identifier	cterm=NONE ctermfg=9	gui=NONE guifg=cyan4
+hi Operator	 	cterm=NONE ctermfg=3
+hi PreProc   	cterm=NONE ctermfg=15	gui=NONE guifg=magenta3
+hi Special   	cterm=NONE ctermfg=14	gui=NONE guifg=deeppink
+hi Statement 	cterm=bold ctermfg=5	gui=bold guifg=blue
+hi Type	     	cterm=NONE ctermfg=1	gui=bold guifg=blue
 
 " Now to set Minor highlight groups
 hi DiffAdd    	ctermbg=LightBlue    	guibg=LightBlue
@@ -53,7 +53,7 @@ hi Pmenu      	guibg=LightBlue
 hi PmenuSel   	ctermfg=White	   		ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
 hi Question   	ctermfg=DarkGreen    	gui=bold guifg=SeaGreen
 hi SpecialKey	ctermfg=DarkBlue	   	guifg=Blue
-hi StatusLine	cterm=bold				ctermbg=blue ctermfg=yellow guibg=gold guifg=blue
+hi StatusLine	cterm=bold				ctermbg=7 ctermfg=fg
 hi StatusLineNC	cterm=bold	   			ctermbg=blue ctermfg=black  guibg=gold guifg=blue
 hi Title     	ctermfg=DarkMagenta  	gui=bold guifg=Magenta
 hi Todo			ctermfg=15				ctermbg=0
@@ -62,6 +62,10 @@ hi Visual     	cterm=NONE	ctermfg=bg	ctermbg=fg	 gui=reverse guifg=Grey guibg=fg
 hi VisualNOS  	cterm=underline,bold 	gui=underline,bold
 hi WarningMsg 	ctermfg=11	   		guifg=Red
 hi WildMenu   	ctermfg=0	   		ctermbg=7    guibg=Yellow guifg=Black
+
+hi TabLineFill	ctermfg=bg	ctermbg=bg
+hi TabLineSel	cterm=bold	ctermfg=fg	ctermbg=bg
+hi TabLine		ctermfg=15	ctermbg=bg
 
 " syntax highlighting
 source /home/callum/.vim/colors/custom-syntax.vim

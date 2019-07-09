@@ -28,9 +28,23 @@ vnoremap <C-c> "+y
 map <C-p> "+P
 
 " Set a bunch of leader things
+" Default leader is backslash (\)
+let mapleader = " "
 map <leader>h <esc>:noh<enter>
 
+
+" Normal mode remaps
 nnoremap <esc> :noh<enter><esc>
+nnoremap <leader><left>		gT
+nnoremap <leader>h			gT	
+nnoremap <leader><right>	gt
+nnoremap <leader>l			gt
+
+" Navigating with guides (from LukeSmithxyz)
+"inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+"vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+nnoremap <Space><Space> <Esc>/<++><enter>"_c4l
+
 
 " Auto run commands when things change
 autocmd BufWritePre * $s/\s\+$//e		" Remove whitespace at end of lines on write
@@ -63,9 +77,3 @@ autocmd filetype tex inoremap ~m \begin{multicols}{2}<enter><enter>\end{multicol
 autocmd filetype tex inoremap ~cm \chapter{}<enter>\begin{multicols}{2}<enter><++><enter>\end{multicols}<esc>3k0/{<enter>:noh<enter>a
 
 
-" Navigating with guides
-"inoremap <Space><Space> <Esc>/<Enter>"_c4l
-"vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-map <Space><Space> <Esc>/<++><Enter>"_c4l
-
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

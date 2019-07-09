@@ -1,7 +1,15 @@
 #!/bin/bash
 
-#i3-msg 'workspace 3:; exec urxvt; exec urxvt; exec urxvt;append_layout /home/callum/.i3/workspace-3-vim.json'
-i3-msg "workspace 3:; append_layout $HOME/.Xscripts/workspace-3-st.json"
-$TERMINAL &
-$TERMINAL &
-$TERMINAL &
+case $1 in
+	"stacked")
+			i3-msg "workspace 3:; append_layout $HOME/.Xscripts/w3-stacked-st.json";
+			$TERMINAL; $TERMINAL; $TERMINAL;
+		;;
+	"single")
+			i3-msg "workspace 3:; append_layout $HOME/.Xscripts/w3-single-st.json";
+			$TERMINAL; $TERMINAL;
+		;;
+	*)
+		;;
+esac
+

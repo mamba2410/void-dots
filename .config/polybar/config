@@ -23,9 +23,8 @@ font-2 = "Font Awesome 5 Brands:style=Solid:size=8;0"
 net-0 = enp5s0
 net-1 = enp4s0
 
-;################################################# SCREEN1 ###########################################################
-[bar/screen1]
-monitor = ${env:MONITOR:DVI-D-1}
+;########################################## BASE BAR ######################################
+[bar/base]
 width = 100%
 height = 20
 offset-x = 0%
@@ -35,7 +34,6 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
-line-color = #f00
 
 padding-left = 0
 padding-right = 2
@@ -46,10 +44,6 @@ module-margin-right = 1
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 font-2 = ${fonts.font-2}
-
-modules-left = i3
-modules-center = date
-modules-right = volume
 
 enable-ipc = true
 
@@ -66,47 +60,35 @@ override-redirect = false
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-;################################################# SCREEN2 ###########################################################
-[bar/screen2]
-monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 20
-offset-x = 0%
-offset-y = 0%
-radius = 0
-fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
+;################################################# SCREEN1 ###########################################################
+[bar/screen1]
+inherit = bar/base
+monitor = ${env:MONITOR:DVI-D-1}
 line-color = #f00
 
-padding-left = 0
-padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+modules-left = i3
+modules-center = date
+modules-right = volume
 
-font-0 = ${fonts.font-0}
-font-1 = ${fonts.font-1}
-font-2 = ${fonts.font-2}
+;################################################# SCREEN2 ###########################################################
+[bar/screen2]
+inherit = bar/base
+monitor = ${env:MONITOR:HDMI-1}
 
 modules-left = i3
 modules-center =
 modules-right = filesystem memory cpu date 
 
-enable-ipc = true
-
 tray-position = right
-tray-padding = 2
-tray-background = ${colors.background}
 
-wm-restack = i3
-override-redirect = false
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+
+
+
+
+
 
 ################################################# VOLUME ###########################################################
 [module/volume]
