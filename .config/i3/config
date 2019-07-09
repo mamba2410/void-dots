@@ -9,7 +9,7 @@ set $mod Mod4
 font Monospace 11 
 
 set $scripts $HOME/.Xscripts
-set $wallpaper_dir $HOME/user/Libraries/Wallpaper
+set $wallpaper_dir $HOME/.wallpaper
 
 set $mode_system System (l) lock, (r) reboot, (Shift+s) shutdown
 
