@@ -15,7 +15,7 @@ set $mode_system System (l) lock, (r) reboot, (Shift+s) shutdown
 
 # Colours for theme
 set_from_resource	$bg-color 			background
-set_from_resource	$bg-color-alt		color4
+set_from_resource	$bg-color-alt		color7
 set 				$bar-color			#404136
 set 				$inactive-bg-color  #282b22
 set_from_resource 	$text-color 		foreground
@@ -36,7 +36,7 @@ set $w10 "0:"
 
 # window colours
 #							border				background			text 			indicator				child-border
-client.focused				$bg-color			$bg-color 			$text-color		$highlight-color		$highlight-color
+client.focused				$bg-color			$bg-color-alt		$text-color		$highlight-color		$highlight-color
 client.focused_inactive		$bg-color  			$bg-color			$text-color 	$bg-color				$bg-color
 client.unfocused  	    	$bg-color	  		$bg-color			$text-color		$bg-color				$bg-color
 client.urgent				$urgent-bg-color    $bg-color 			$text-color 	$bg-color				$bg-color
@@ -60,8 +60,8 @@ exec_always --no-startup-id $scripts/launch_polybar.sh
 ###############################
 # keybinds
 
-bindsym $mod+a exec "bash $scripts/workspace_3.sh"
-#bindsym $mod+Shift+a exec
+bindsym $mod+a exec "$scripts/workspace_3.sh single"
+bindsym $mod+Shift+a exec "$scripts/workspace_3.sh stacked"
 
 #bindsym $mod+b exec
 #bindsym $mod+Shift+b exec
