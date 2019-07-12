@@ -12,7 +12,7 @@ ln_new_file(){
 }
 
 declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts" ".wallpaper")
-declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar")
+declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs")
 
 
 echo "Moving existing files in ~/ to ~/.old_dots"

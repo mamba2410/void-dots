@@ -1,11 +1,11 @@
-[colors]
+[colours]
 ;background = ${xrdb:background}
 ;background-alt = ${xrdb:color7}
 background = #11ffffff
 background-alt = 33ffffff
 
 foreground = ${xrdb:foreground}
-foreground-alt = ${xrdb:color11}
+foreground-alt = ${xrdb:color12}
 
 ;change modules/filesystem as this is having trouble finding the colour
 primary = #8e6659
@@ -31,8 +31,8 @@ offset-x = 0%
 offset-y = 0%
 radius = 0
 fixed-center = false
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colours.background}
+foreground = ${colours.foreground}
 line-size = 2
 
 padding-left = 0
@@ -49,7 +49,7 @@ enable-ipc = true
 
 tray-position = none
 tray-padding = 2
-tray-background = ${colors.background}
+tray-background = ${colours.background}
 
 wm-restack = i3
 
@@ -96,9 +96,9 @@ type = internal/pulseaudio
 
 format-volume = %{A1:pavucontrol:}<label-volume>%{A}
 label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
+label-volume-foreground = ${colours.foreground}
 format-volume-prefix = "V "
-format-volume-prefix-foreground = ${colors.foreground-alt}
+format-volume-prefix-foreground = ${colours.foreground-alt}
 format-volume-underline = #783c7e
 
 ################################################# FILESYSTEM ###########################################################
@@ -112,9 +112,10 @@ mount-2 = /boot
 
 format-mounted-underline = #740f0f
 
-label-mounted = %{F#d7cdb9} %mountpoint% %{F-}: %used%
+label-mounted = %mountpoint%:%{F-} %used%
+label-mounted-foreground = ${colours.foreground-alt}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${colours.foreground-alt}
 
 ################################################# I3 ###########################################################
 [module/i3]
@@ -148,12 +149,12 @@ ws-icon-9 = 0;
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${colours.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
+label-focused-background = ${colours.background-alt}
+label-focused-underline = ${colours.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -168,7 +169,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${colors.alert}
+label-urgent-background = ${colours.alert}
 label-urgent-padding = 2
 
 ################################################# CPU ###########################################################
@@ -178,7 +179,7 @@ interval = 1
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 format-prefix = "C "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colours.foreground-alt}
 format-underline = #495b34
 label = %percentage:2%%
 
@@ -189,7 +190,7 @@ interval = 1
 font-0 = ${fonts.font-0}
 font-1 = ${fonts.font-1}
 format-prefix = "M "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colours.foreground-alt}
 format-underline = #915922
 label = "%percentage_used%%"
 
@@ -200,7 +201,7 @@ interface = ${eths.net-1}
 interval = 5.0
 format-connected-underline = #2a5a57
 format-connected-prefix = "IP "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colours.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
@@ -217,7 +218,7 @@ time="%H:%M"
 time-alt="%H:%M:%S"
 
 format-prefix= 
-format-prefix-foreground=${colors.foreground}
+format-prefix-foreground=${colours.foreground}
 format-underline=#7d3447
 
 label=%date% %time%

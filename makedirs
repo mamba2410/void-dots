@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo "Creating new directory structure"
-mkdir -pv  ~/user/{Downloads,Libraries}  ~/user/Libraries/{Documents,Pictures,Programming} ~/user/Programming/{C,Cpp} ~/user/Mounts/{NAS,Memstick,Data,General1,General2,General3}
-mkdir -pv ~/{.fonts,.scripts,programs,extracts}
+mkdir -pv ~/{.fonts,.scripts,bin,code,dl,doc,misc,mnt,music,pic,repos,src,tmp,vid}
+mkdir -pv ~/.de/{Desktop,Templates,Public}
+mkdir -v ~/pic/{screenshots,wallpapers}
