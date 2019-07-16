@@ -32,7 +32,8 @@ fi
 color_prompt=yes
 
 # Sets cursor repeat key delay and frequency
-xset r rate 250 50
+# Only works when in X, so shouldn't be here
+#xset r rate 250 50
 
 # Customise prompt
 #export PS1="\[$(tput bold)\]\[$(tput setaf 9)\][\[$(tput setaf 10)\]\u\[$(tput setaf 9)\]@\[$(tput setaf 13)\]\h \[$(tput setaf 14)\]\W\[$(tput setaf 9)\]]\[$(tput sgr0)\]\\$ "

@@ -9,6 +9,10 @@ Notifications: Dunst
 Menus: Rofi
 Editor: Neovim
 Lock Screen: betterlockscreen
+Terminal: Luke Smith's build of st
+
+Current GTK Theme: <a href="https://www.gnome-look.org/p/1254680/">Obscure-Green</a>
+Current GTK Icons: <a href="https://www.opendesktop.org/p/1218961/">Green-Maia</a>
 
 I'm fairly new to ricing and not a master at Linux so let me know if I'm doing anything completely wrong.
 

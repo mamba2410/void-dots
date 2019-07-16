@@ -11,8 +11,8 @@ ln_new_file(){
 	ln -sv "$location/$1" "$HOME/$1"
 }
 
-declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts" ".wallpaper")
-declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs")
+declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts" ".wallpaper" ".gtkrc-2.0")
+declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs" "gtk-3.0")
 
 
 echo "Moving existing files in ~/ to ~/.old_dots"
