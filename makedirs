@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo "Creating new directory structure"
-mkdir -pv ~/{.fonts,.scripts,bin,code,dl,doc,misc,mnt,music,pic,repos,src,tmp,vid}
-mkdir -pv ~/.de/{Desktop,Templates,Public}
-mkdir -v ~/pic/{screenshots,wallpapers}

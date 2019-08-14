@@ -1,40 +1,52 @@
-#!/bin/bash
+#!/bin/sh
 
-old_location="$HOME/.old_dots"
-location=$(pwd)
+target_names=$(cat targets)
 
-mv_old(){
-	mv -v "$HOME/$1" "$old_location/$1"	
-}
+target_base="$(pwd)"
+destination_base="$HOME"
+storage_base="$HOME/.old_dots/$(date +'%y%m%d-%H%M%S')"
 
-ln_new_file(){
-	ln -sv "$location/$1" "$HOME/$1"
-}
+[ -z "$1" ] || target_base="$1"
+[ -z "$2" ] || destination_base="$2"
+[ -z "$3" ] || storage_base="$3"
 
-declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts" ".wallpaper" ".gtkrc-2.0")
-declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs" "gtk-3.0" "Trolltech.conf")
+#echo "Target $target_base"
+#echo "Destination $destination_base"
+#echo "Dotfile Storage $storage_base"
 
-read -p "Are you sure you want to link files from '$location' to '$HOME'?  " userconf
-[[ $userconf == "y" ]] || echo "Aborting..."; exit
+read -p "Confirm linking from '$target_base' to '$destination_base'? [y/n]  " user_choice
+if [ "$user_choice" != "y" ]; then
+	echo "Aborting..."
+	exit
+fi
 
-echo "Moving existing files in ~/ to ~/.old_dots"
+read -p "Would you like to (m)ove old files to '$storage_base', (d)elete them or (u)pdate the symlinks (will create new links if they don't exist)?  " user_choice
+case $user_choice in
+	"m"|"M")
+		echo "Moving files"
+		for f in $target_names; do
+			[ -d $(dirname "$storage_base/$f") ] || mkdir -pv $(dirname "$storage_base/$f")
+			mv -v "$destination_base/$f" "$storage_base/$f"
+		done
+		;;
+	"d"|"D")
+		echo "Deleting files"
+		for f in $target_names; do
+			rm -vr "$destination_base/$f"
+		done
+		;;
+	"u"|"U")
+		;;
+	*)
+		;;
+esac
 
-[[ ! -d "$old_location" ]] && mkdir "$old_location" "$old_location/.config"
 
-for f in "${link_files[@]}"; do
-	mv_old "$f"
+echo "Linking files to destination '$destination_base'"
+
+for f in $target_names; do
+	[ -d $(dirname "$destination_base/$f") ] || mkdir -pv $(dirname "$destination_base/$f")
+	ln -sfv "$target_base/$f" "$(dirname $destination_base/$f)"
 done
 
-[[ ! -d "$HOME/.config" ]] && mkdir "$HOME/.config"
-for f in "${link_conf_files[@]}"; do
-	mv_old ".config/$f"
-done
 
-echo "Creating symlinks"
-
-for f in "${link_files[@]}"; do
-	ln_new_file "$f"
-done
-for f in "${link_conf_files[@]}"; do
-	ln_new_file ".config/$f"
-done
