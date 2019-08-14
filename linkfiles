@@ -12,8 +12,10 @@ ln_new_file(){
 }
 
 declare -a link_files=(".Xresources" ".bash_aliases" ".bash_profile" ".bashrc" ".profile" ".xinitrc" ".vimrc" ".vim" ".Xscripts" ".wallpaper" ".gtkrc-2.0")
-declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs" "gtk-3.0")
+declare -a link_conf_files=("nvim" "rofi" "i3" "dunst" "compton.conf" "polybar" "user-dirs.dirs" "gtk-3.0" "Trolltech.conf")
 
+read -p "Are you sure you want to link files from '$location' to '$HOME'?  " userconf
+[[ $userconf == "y" ]] || echo "Aborting..."; exit
 
 echo "Moving existing files in ~/ to ~/.old_dots"
 
@@ -27,7 +29,6 @@ done
 for f in "${link_conf_files[@]}"; do
 	mv_old ".config/$f"
 done
-
 
 echo "Creating symlinks"
 

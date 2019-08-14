@@ -22,7 +22,7 @@ Make sure you <code>cd</code> out once the script is finished, as it moves the r
 Alternatively, put the repo anywhere you like and run <code>linkfiles</code> and optionally <code>makedirs</code> from inside the repo.
 
 <ul>
-<li><code>linkfiles</code> moves old dotfiles that this repo would replace to a new directory and symlinks the dots in this repo to where they should be.</li?
+<li><code>linkfiles</code> moves old dotfiles that this repo would replace to a new directory and symlinks the dots in this repo to where they should be.</li>
 <li><code>makedirs</code> creates a directory tree which I think makes more sense and leads to a cleaner <code>/home/$USER</code>.</li>
 <li><code>gen.sh</code> moves the git repo to <code>~/user/*reponame*/</code> and runs the scripts above.</li>
 </ul>
