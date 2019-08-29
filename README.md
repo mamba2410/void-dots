@@ -18,18 +18,18 @@ Dotfiles for my Void\* linux system.
 
 <h3>Installation</h3>
 <code>
-git clone https://github.com/mamba2410/void-dots; <p>
-cd void-dots; <p>
-./install; <p>
-</code>
+git clone https://github.com/mamba2410/void-dots<br>
+cd void-dots<br>
+./install
+</code><br>
 Then follow the prompts on screen.
 
 <h3>Update</h3>
-If you made any changes, run <code>git stash; </code><p>
-Next, run<p>
+If you made any changes, run <code>git stash</code><br>
+Next, run<br>
 <code>
-git pull; <p>
-./linkfiles; <p>
+git pull<br>
+./linkfiles<br>
 </code>
 If you stashed changes, pop them with <code>git stash pop</code>
 
