@@ -63,7 +63,7 @@ exec_always --no-startup-id $scripts/launch_polybar.sh
 bindsym $mod+a exec "$scripts/workspace_3.sh single"
 bindsym $mod+Shift+a exec "$scripts/workspace_3.sh stacked"
 
-#bindsym $mod+b exec
+bindsym $mod+b exec "$scripts/blue"
 #bindsym $mod+Shift+b exec
 
 #bindsym $mod+c exec

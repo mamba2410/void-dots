@@ -1,19 +1,21 @@
 #!/bin/sh
 
 read -p "Would you like to create a new home directory tree? [y/n]  " user_choice
-if [ "$user_choice" == "y" ]; then
+if [ "$user_choice" = "y" ]; then
 	echo "Creating new directory structure"
-	mkdir -pv ~/{.fonts,.scripts,bin,code,dl,doc,misc,mnt,music,pic,repos,src,tmp,vid}
-	mkdir -pv ~/.de/{Desktop,Templates,Public}
-	mkdir -v ~/pic/{screenshots,wallpapers}
+	dirs=$(cat "dirs")
+	for x in $dirs; do
+		#echo "$HOME/$x"
+		mkdir -pv "$HOME/$x"
+	done
 fi
 
 read -p "Would you like to move the repo before linking? [y/n]  " user_choice
-if [ "$user_choice" == "y" ]; then
-	repo_destination="$HOME/repos/"
+if [ "$user_choice" = "y" ]; then
+	repo_destination="$HOME/repos/void-dots"
 	read -p "Where would you like to move it to? Default '$repo_destination'  " user_choice
 	[ -z "$user_choice" ] || repo_destination="$user_choice"
-	[ -d "$repo_destination" ] || mkdir -pv "$repo_destination"
+	[ -d "$(dirname $repo_destination)" ] || mkdir -pv "$(dirname $repo_destination)"
 	mv "$(pwd)" "$repo_destination"
 	cd "$repo_destination"
 fi

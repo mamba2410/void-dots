@@ -1,6 +1,6 @@
 * {
     active-background: #282b22;
-    active-foreground: @foreground;
+	active-foreground: @foreground;
     normal-background: @background;
     normal-foreground: @foreground;
     urgent-background: #404136;
@@ -49,11 +49,11 @@
 }
 
 inputbar {
+	enabled: false;
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
-textbox-prompt-colon {
-    expand: false;
+#textbox-prompt-colon {
     str: ":";
     margin: 0px 0.3em 0em 0em;
     text-color: @normal-foreground;

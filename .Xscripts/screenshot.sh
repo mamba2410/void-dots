@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sdir="$HOME/user/Libraries/Screenshots"
+sdir="$HOME/pic/screenshots"
 
 case $1 in 
 	single)
