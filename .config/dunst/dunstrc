@@ -24,7 +24,7 @@
     sort = yes
 
     idle_threshold = 120
-    font = Monospace 12
+    font = Monospace 14
     line_height = 0
     markup = full
 
@@ -38,15 +38,15 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "%s\n%b"
 
     alignment = left
     show_age_threshold = 60
-    word_wrap = no
+    word_wrap = yes
     ellipsize = middle
     ignore_newline = no
     stack_duplicates = true
-    hide_duplicate_count = false
+    hide_duplicate_count = true
     show_indicators = yes
     icon_position = left
     max_icon_size = 40

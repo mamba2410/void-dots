@@ -6,8 +6,6 @@ if test -x "$DBUS_SESSION_BUS_ADDRESS" ; then
 	echo "DBUS per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
 fi
 
-nm-applet &
-
 xset r rate 300 40
 setxkbmap gb
 exec i3
