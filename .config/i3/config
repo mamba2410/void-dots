@@ -49,8 +49,17 @@ for_window [class="Spotify"] move to workspace $w10
 
 for_window [class=^.*] border pixel 2
 
+# Gaps
 gaps inner 6
 gaps outer 8
+
+
+# Python maths window
+for_window [instance="maths_python"] floating enable
+for_window [instance="maths_python"] resize set 640 480
+for_window [instance="maths_python"] move scratchpad
+exec $TERMINAL -n "maths_python" -e python -q
+
 
 # custom executes
 exec_always feh --bg-scale $wallpaper_dir/wallpaper.png
@@ -101,7 +110,7 @@ bindsym $mod+Shift+l move right
 bindsym $mod+m move workspace to output left
 bindsym $mod+Shift+m mode "move_float"
 
-#bindsym $mod+n exec 
+bindsym $mod+n [instance="maths_python"] scratchpad show; [instance="maths_python"] move position center
 #bindsym $mod+Shift+n exec
 
 #bindsym $mod+o exec

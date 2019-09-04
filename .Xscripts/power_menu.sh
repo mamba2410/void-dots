@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options="Shutdown\nReboot\nLogout\nLock\nKill all windows\nExit i3"
+options="Shutdown\nReboot\nLogout\nLock\nExit i3\nKill all windows"
 choice=$( echo -e $options | rofi -dmenu -p "Power Menu" -theme "power_menu" )
 case $choice in
 	"Shutdown")

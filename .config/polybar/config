@@ -1,3 +1,4 @@
+;######################################## COLOURS AND OPTIONS ##############################################
 [colours]
 ;background = ${xrdb:background}
 ;background-alt = ${xrdb:color7}
@@ -78,19 +79,26 @@ inherit = bar/base
 monitor = ${env:MONITOR:HDMI-1}
 
 modules-left = i3
-modules-center =
+modules-center = 
 modules-right = filesystem memory cpu date 
 
 tray-position = right
 
 
+;################################################ SCREEN SINGLE ##########################################
+[bar/screen_single]
+inherit=bar/base
+monitor = ${env:MONITOR:LVDS}
+
+modules-left = i3
+modules-center = 
+modules-right = filesystem memory cpu volume date
+
+tray-position = right
 
 
 
-
-
-
-################################################# VOLUME ###########################################################
+;################################################# VOLUME ###########################################################
 [module/volume]
 type = internal/pulseaudio
 
@@ -101,7 +109,7 @@ format-volume-prefix = "V "
 format-volume-prefix-foreground = ${colours.foreground-alt}
 format-volume-underline = #783c7e
 
-################################################# FILESYSTEM ###########################################################
+;################################################# FILESYSTEM ###########################################################
 [module/filesystem]
 type = internal/fs
 interval = 60
@@ -117,7 +125,7 @@ label-mounted-foreground = ${colours.foreground-alt}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colours.foreground-alt}
 
-################################################# I3 ###########################################################
+;################################################# I3 ###########################################################
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -172,7 +180,7 @@ label-urgent = %icon%
 label-urgent-background = ${colours.alert}
 label-urgent-padding = 2
 
-################################################# CPU ###########################################################
+;################################################# CPU ###########################################################
 [module/cpu]
 type = internal/cpu
 interval = 1
@@ -183,7 +191,7 @@ format-prefix-foreground = ${colours.foreground-alt}
 format-underline = #495b34
 label = %percentage:2%%
 
-################################################# MEMORY ###########################################################
+;################################################# MEMORY ###########################################################
 [module/memory]
 type = internal/memory
 interval = 1
@@ -194,10 +202,10 @@ format-prefix-foreground = ${colours.foreground-alt}
 format-underline = #915922
 label = "%percentage_used%%"
 
-################################################# ETH ###########################################################
+;################################################# ETH ###########################################################
 [module/eth]
 type = internal/network
-interface = ${eths.net-1}
+interface = ${eths.net-0}
 interval = 5.0
 format-connected-underline = #2a5a57
 format-connected-prefix = "IP "
@@ -206,7 +214,84 @@ label-connected = %local_ip%
 
 format-disconnected =
 
-################################################# DATE ###########################################################
+;################################################ XBACKLIGHT ###################################################
+[module/xbacklight]
+type = internal/xbacklight
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+;################################################ TEMPERATURE ###########################################################
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+;############################################### POWER MENU ###########################################################
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+;format-spacing = 1
+;
+;label-open = 
+;label-open-foreground = ${colors.secondary}
+;label-close =  cancel
+;label-close-foreground = ${colors.secondary}
+;label-separator = |
+;label-separator-foreground = ${colors.foreground-alt}
+
+label-open = Power
+label-close = X
+label-separator = |
+
+menu-0-0 = Reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = Power Off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = Cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power Off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-exec = menu-open-0
+
+
+
+;################################################# DATE ###########################################################
 [module/date]
 type = internal/date
 interval = 5
@@ -223,7 +308,7 @@ format-underline=#7d3447
 
 label=%date% %time%
 
-################################################# GLOBAL/WM ###########################################################
+;################################################# GLOBAL/WM ###########################################################
 [global/wm]
 margin-top = 5
 margin-bottom = 5
