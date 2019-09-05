@@ -3,6 +3,7 @@
 .bash_aliases
 .bash_profile
 .bashrc
+.dircolors
 .gtkrc-2.0
 .profile
 .vim
