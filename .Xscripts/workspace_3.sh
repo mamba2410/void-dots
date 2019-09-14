@@ -12,6 +12,12 @@ case $1 in
 			$TERMINAL &
 			$TERMINAL &
 		;;
+	"latex")
+			i3-msg "workspace 3:; append_layout $HOME/.Xscripts/w3-latex.json";
+			$TERMINAL &
+			$TERMINAL &
+			$TERMINAL &
+		;;
 	*)
 		;;
 esac

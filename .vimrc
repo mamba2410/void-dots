@@ -18,6 +18,7 @@ set shiftwidth=4
 " Set filetypes when file is opened
 autocmd BufNewFile,BufReadPost *.c set filetype=c
 autocmd BufNewFile,BufReadPost *.tex set filetype=tex
+"autocmd BufNewFile,BufReadPost *.md set filetype=md
 
 " Needed itherwise vim leaves temp files in the current directory
 set backupdir=~/.vim
@@ -30,7 +31,7 @@ map <C-p> "+P
 " Set a bunch of leader things
 " Default leader is backslash (\)
 let mapleader = " "
-map <leader>h <esc>:noh<enter>
+" map <leader>h <esc>:noh<enter>
 
 
 " Normal mode remaps
@@ -60,7 +61,7 @@ autocmd filetype c inoremap ~e if(){<enter><++><enter>} else {<enter><++><enter>
 autocmd filetype c inoremap ~s switch(){<enter>case <++>;break;<enter>default:break;<enter>}<esc>3k0/(<enter>:noh<enter>a
 
 " Latex things, like autocompile and remaps
-autocmd BufWritePost *.tex !pdflatex -output-directory pdf %
+" autocmd BufWritePost *.tex !pdflatex -output-directory pdf %
 
 autocmd filetype tex inoremap ~eq \begin{equation}<enter><enter>\end{equation}<enter><++><esc>kkA
 autocmd filetype tex inoremap ~*eq \begin{equation*}<enter><enter>\end{equation*}<enter><++><esc>kkA
@@ -76,4 +77,5 @@ autocmd filetype tex inoremap ~be \begin{enumerate}<enter>\item <enter>\end{enum
 autocmd filetype tex inoremap ~m \begin{multicols}{2}<enter><enter>\end{multicols}<esc>kA
 autocmd filetype tex inoremap ~cm \chapter{}<enter>\begin{multicols}{2}<enter><++><enter>\end{multicols}<esc>3k0/{<enter>:noh<enter>a
 
-
+" markdown things
+autocmd filetype markdown inoremap ~c <code></code><esc>6hi

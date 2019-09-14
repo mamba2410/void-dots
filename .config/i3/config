@@ -11,8 +11,6 @@ font Monospace 11
 set $scripts $HOME/.Xscripts
 set $wallpaper_dir $HOME/.wallpaper
 
-set $mode_system System (l) lock, (r) reboot, (Shift+s) shutdown
-
 # Colours for theme
 set_from_resource	$bg-color 			background
 set_from_resource	$bg-color-alt		color7
@@ -84,12 +82,12 @@ bindsym $mod+d exec rofi -show
 
 bindsym $mod+e layout toggle split
 #bindsym $mod+Shift+e mode "$mode_system"
-bindsym $mod+Shift+e exec $scripts/power_menu.sh
+bindsym $mod+Shift+e exec "$scripts/power_menu.sh"
 
 bindsym $mod+f exec firefox
 bindsym $mod+Shift+f fullscreen toggle
 
-#bindsym $mod+g exec
+bindsym $mod+g exec "$scripts/workspace_3.sh latex"
 #bindsym $mod+Shift+g exec
 
 bindsym $mod+h focus left
@@ -195,6 +193,7 @@ bindsym $mod+Shift+Right move right
 
 bindsym --release Print exec "$scripts/screenshot.sh multi" 
 bindsym --release shift+Print exec "$scripts/screenshot.sh select" 
+bindsym --release $mod+Print exec "$scripts/screenshot.sh single"
 
 
 ###############################
