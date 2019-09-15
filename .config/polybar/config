@@ -80,7 +80,7 @@ monitor = ${env:MONITOR:HDMI-1}
 
 modules-left = i3
 modules-center = 
-modules-right = filesystem memory cpu date 
+modules-right = custom-filesystem memory cpu date 
 
 tray-position = right
 
@@ -108,6 +108,16 @@ label-volume-foreground = ${colours.foreground}
 format-volume-prefix = "V "
 format-volume-prefix-foreground = ${colours.foreground-alt}
 format-volume-underline = #783c7e
+
+
+;################################################# CUSTOM FILESYSTEM ####################################################
+[module/custom-filesystem]
+type = custom/script
+tail = true
+exec = "$HOME/.Xscripts/mountpoints.sh"
+click-left = "kill -USR1 $(pgrep --oldest --parent %pid%)"
+
+format-underline = #740f0f
 
 ;################################################# FILESYSTEM ###########################################################
 [module/filesystem]
