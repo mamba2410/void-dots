@@ -92,7 +92,7 @@ monitor = ${env:MONITOR:LVDS}
 
 modules-left = i3
 modules-center = 
-modules-right = filesystem memory cpu volume date
+modules-right = custom-filesystem memory cpu volume date
 
 tray-position = right
 
