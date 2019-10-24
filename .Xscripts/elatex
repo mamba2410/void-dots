@@ -22,4 +22,3 @@ fi
 cd "$rofi_choice_path" || exit
 ~/.Xscripts/workspace_3.sh latex
 
-mupdf *.pdf

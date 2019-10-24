@@ -192,7 +192,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Right focus right
 bindsym $mod+Shift+Right move right
 
-bindsym --release Print exec "$scripts/screenshot.sh multi" 
+bindsym --release Print exec "$scripts/screenshot.sh all" 
 bindsym --release shift+Print exec "$scripts/screenshot.sh select" 
 bindsym --release $mod+Print exec "$scripts/screenshot.sh single"
 

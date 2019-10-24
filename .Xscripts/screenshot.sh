@@ -1,16 +1,21 @@
 #!/bin/bash
 
-sdir="$HOME/pic/screenshots"
+file_directory="$HOME/pic/screenshots"
+#file_name="$file_directory/TESTER.png"
+file_name="$file_directory/%Y%m%d-%H%M%S-$1.png"
+file_path=""
 
 case $1 in 
-	single)
-		args="-u"
+	"single")
+		file_path=$(scrot $file_name --focused --exec 'echo $f')
 		;;
-	select)
-		args="-s -e 'convert $f crop +1+1 $f'"
+	"select")
+		#args="--select --exec 'convert \$f -crop +1+1 $f; echo \$f'"
+		file_path=$(scrot $file_name --select --exec 'echo $f')
+		convert $file_path -crop +1+1 $file_path
 		;;
-	multi)
-		args=""
+	"all")
+		file_path=$(scrot $file_name --exec 'echo $f')
 		;;
 	*)
 		echo "Unrecognised argument $1"
@@ -18,5 +23,4 @@ case $1 in
 		;;
 esac
 
-scrot "$sdir/%Y%m%d-%H%M%S-$1.png" $args
-notify-send "Screenshot taken" "$1"
+notify-send "Screenshot taken" "$file_path"

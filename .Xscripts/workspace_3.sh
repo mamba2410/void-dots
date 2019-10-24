@@ -13,10 +13,11 @@ case $1 in
 			$TERMINAL &
 		;;
 	"latex")
-			i3-msg "workspace 3:; append_layout $HOME/.Xscripts/w3-latex.json";
+			i3-msg "workspace 3:; append_layout $HOME/.Xscripts/w3-latex-2term.json";
 			$TERMINAL &
 			$TERMINAL &
-			$TERMINAL &
+			#$TERMINAL &
+			mupdf *.pdf
 		;;
 	*)
 		;;
