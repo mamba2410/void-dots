@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-rofi_options_file="~/.scripts/elatex_o" 
+rofi_options_file="/home/$(whoami)/.Xscripts/elatex_o" 
 
 rofi_options=$(cat $rofi_options_file | awk '{print $1}')
 rofi_choice=$(echo "$rofi_options" | rofi -p "latex" -dmenu )
 
 if [ -z $rofi_choice ]; then
 	echo "No choice from rofi, abort."
-	return
+	exit
 fi
 
 rofi_choice_path=$(grep "^$rofi_choice" "$rofi_options_file" | awk '{print $2}')
@@ -19,7 +19,7 @@ if [ -z $rofi_choice_path ]; then
 	rofi_choice_path="$rofi_choice"
 fi
 
-cd "$rofi_choice_path"
+cd "$rofi_choice_path" || exit
 ~/.Xscripts/workspace_3.sh latex
 
 mupdf *.pdf

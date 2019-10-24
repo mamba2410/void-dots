@@ -88,7 +88,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+Shift+f fullscreen toggle
 
 #bindsym $mod+g exec "$scripts/workspace_3.sh latex"
-bindsym $mod+g exec "$scripts elatex"
+bindsym $mod+g exec "$scripts/elatex"
 #bindsym $mod+Shift+g exec
 
 bindsym $mod+h focus left
