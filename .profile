@@ -15,7 +15,7 @@ export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 #[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 
