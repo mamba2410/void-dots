@@ -4,6 +4,13 @@
 "source $VIMRUNTIME/defaults.vim
 
 " Set a bunch of settings
+set noundofile
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
 set nocompatible
 filetype plugin on
 syntax on
@@ -15,14 +22,12 @@ colorscheme custom
 set ts=4
 set shiftwidth=4
 
+
 " Set filetypes when file is opened
 autocmd BufNewFile,BufReadPost *.c set filetype=c
 autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 "autocmd BufNewFile,BufReadPost *.md set filetype=md
 
-" Needed itherwise vim leaves temp files in the current directory
-set backupdir=~/.vim
-set noundofile
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y

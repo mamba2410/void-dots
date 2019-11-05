@@ -68,5 +68,6 @@ hi TabLineSel	cterm=bold	ctermfg=fg	ctermbg=bg
 hi TabLine		ctermfg=15	ctermbg=bg
 
 " syntax highlighting
-source /home/callum/.vim/colors/custom-syntax.vim
+" source /home/callum/.vim/colors/custom-syntax.vim
+source $XDG_CONFIG_HOME/vim/colors/custom-syntax.vim
 " vim: sw=2

@@ -9,7 +9,7 @@ set $mod Mod4
 font Monospace 11 
 
 set $scripts $HOME/.Xscripts
-set $wallpaper_dir $HOME/.wallpaper
+set $wallpaper_dir $HOME/pic/.wallpaper
 
 # Colours for theme
 set_from_resource	$bg-color 			background

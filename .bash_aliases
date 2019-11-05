@@ -3,8 +3,8 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias la='ls -Agoh --time-style=+%d-%m'
-alias ll='ls -Alh'
+alias la='ls -Agoh --time-style=+%y-%d-%m'
+alias ll='ls -Alh --time-style=long-iso'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
