@@ -8,7 +8,7 @@ alias ll='ls -Alh --time-style=long-iso'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias v="vim"
+alias v="vim" # Typically use nvim, but also works if use normal vim
 alias suvi="sudo vim"
 alias md="mkdir -p"
 
