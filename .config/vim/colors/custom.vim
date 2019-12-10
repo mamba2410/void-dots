@@ -47,6 +47,35 @@ hi link Struture 	Type
 hi link Typedef 	Type
 hi link Union		Type
 
+" Now to set Minor highlight groups
+hi DiffAdd    	ctermbg=fg
+hi DiffChange 	ctermbg=fg
+hi DiffDelete 	ctermfg=fg	ctermbg=7
+hi DiffText   	ctermbg=fg	cterm=bold
+hi Directory  	ctermfg=fg
+hi Error		ctermfg=fg				ctermbg=7
+hi ErrorMsg   	ctermfg=fg	   			ctermbg=7
+hi FoldColumn 	ctermfg=fg	   	ctermbg=Grey     guibg=Grey	    guifg=DarkBlue
+hi Folded     	ctermbg=Grey	   		ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
+hi IncSearch  	cterm=reverse	   		gui=reverse
+hi LineNr     	ctermfg=13	   			guifg=Brown
+hi MatchParen	ctermfg=fg				ctermbg=7
+hi ModeMsg    	cterm=bold	   			gui=bold
+hi MoreMsg    	ctermfg=DarkGreen    	gui=bold guifg=SeaGreen
+hi NonText    	ctermfg=Blue	   		gui=bold guifg=gray guibg=white
+hi Pmenu      	guibg=LightBlue
+hi PmenuSel   	ctermfg=White	   		ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
+hi Question   	ctermfg=DarkGreen    	gui=bold guifg=SeaGreen
+hi SpecialKey	ctermfg=DarkBlue	   	guifg=Blue
+hi StatusLine	cterm=bold				ctermbg=7 ctermfg=fg
+hi StatusLineNC	cterm=bold	   			ctermbg=blue ctermfg=black  guibg=gold guifg=blue
+hi Title     	ctermfg=DarkMagenta  	gui=bold guifg=Magenta
+hi Todo			ctermfg=15				ctermbg=0
+hi VertSplit  	cterm=reverse	   		gui=reverse
+hi Visual     	cterm=NONE	ctermfg=bg	ctermbg=fg	 gui=reverse guifg=Grey guibg=fg
+hi VisualNOS  	cterm=underline,bold 	gui=underline,bold
+hi WarningMsg 	ctermfg=11	   		guifg=Red
+hi WildMenu   	ctermfg=0	   		ctermbg=7    guibg=Yellow guifg=Black
 
 " Now to set Minor highlight groups
 hi DiffAdd    	cterm=none		ctermfg=fg	ctermbg=14    	

@@ -77,11 +77,11 @@ modules-right = volume
 ;################################################# SCREEN2 ###########################################################
 [bar/screen2]
 inherit = bar/base
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:LVDS1}
 
 modules-left = i3
 modules-center = 
-;modules-right = custom-filesystem memory cpu date 
+;modules-right = custom-filesystem memory cpu date
 modules-right = memory cpu date
 
 tray-position = right
@@ -90,12 +90,12 @@ tray-position = right
 ;################################################ SCREEN SINGLE ##########################################
 [bar/screen_single]
 inherit=bar/base
-monitor = ${env:MONITOR:LVDS}
+monitor = ${env:MONITOR:LVDS1}
 
 modules-left = i3
 modules-center = 
 ;modules-right = custom-filesystem memory cpu volume date
-modules-right = memory cpu volume date
+modules-right = memory cpu volume battery date
 
 tray-position = right
 
@@ -264,7 +264,8 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+;format = <ramp> <label>
+format = <label>
 format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
@@ -330,6 +331,101 @@ format-prefix-foreground=${colours.foreground}
 format-underline=#7d3447
 
 label=%date%%time%
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d2d604a... Added thinkpad only configs
+
+;########################################## BATTERY ##################################
+[module/battery]
+type=internal/battery
+
+
+full-at = 99
+
+battery=BAT0
+adapter=ADP1
+
+poll-interval = 5
+
+; See "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+format-charging-underline=#e07e38
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline=#e07e38
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = C %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = D %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+label-full = Full
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+<<<<<<< HEAD
+>>>>>>> Added thinkpad only configs
+=======
+>>>>>>> d2d604a... Added thinkpad only configs
 
 ;################################################# GLOBAL/WM ###########################################################
 [global/wm]

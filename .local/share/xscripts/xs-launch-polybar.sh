@@ -8,6 +8,5 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Check which bars to run when differing screens are detected
-polybar screen1 &
-polybar screen2 &
+polybar screen_single &
 
