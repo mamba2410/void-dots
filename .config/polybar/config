@@ -8,10 +8,11 @@ background-alt = 33ffffff
 foreground = ${xrdb:foreground}
 foreground-alt = ${xrdb:color12}
 
+alert = ${xrdb:color1}
+
 ;change modules/filesystem as this is having trouble finding the colour
 primary = #8e6659
 secondary = #8e6659
-alert = #8e6659
 
 [fonts]
 font-0 = Monospace:size=8;0
@@ -103,11 +104,19 @@ tray-position = right
 type = internal/pulseaudio
 
 format-volume = %{A1:pavucontrol:}<label-volume>%{A}
+
 label-volume = %percentage%%
 label-volume-foreground = ${colours.foreground}
 format-volume-prefix = "V "
 format-volume-prefix-foreground = ${colours.foreground-alt}
 format-volume-underline = #783c7e
+
+label-muted = %percentage%%
+label-muted-foreground = ${colours.alert}
+format-muted-prefix = "V "
+format-muted-prefix-foreground = ${colours.alert}
+format-muted-underline = #783c7e
+
 
 
 ;################################################# CUSTOM FILESYSTEM ####################################################
@@ -307,7 +316,7 @@ type = internal/date
 interval = 5
 
 date=
-date-alt="%d/%m/%Y"
+date-alt="%d/%m/%Y "
 
 time="%H:%M"
 time-alt="%H:%M:%S"
@@ -316,7 +325,7 @@ format-prefix=
 format-prefix-foreground=${colours.foreground}
 format-underline=#7d3447
 
-label=%date% %time%
+label=%date%%time%
 
 ;################################################# GLOBAL/WM ###########################################################
 [global/wm]
