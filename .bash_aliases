@@ -1,9 +1,9 @@
-alias python=python3
+alias python='python3'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias la='ls -Agoh --time-style=+%y-%d-%m'
+alias la='ls -Agoh --time-style=+%y-%m-%d'
 alias ll='ls -Alh --time-style=long-iso'
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -19,7 +19,7 @@ alias sZ="sudo ZZZ"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git push"
-alias gs="git status -v"
+alias gs="git status"
 alias gch="git checkout"
 alias gb="git branch"
 
