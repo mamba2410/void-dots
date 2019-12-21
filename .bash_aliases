@@ -12,21 +12,25 @@ alias v="vim" # Typically use nvim, but also works if use normal vim
 alias suvi="sudo vim"
 alias md="mkdir -p"
 
-alias sz="sudo zzz"
-alias sZ="sudo ZZZ"
-
 # Git
 alias ga="git add"
 alias gc="git commit"
-alias gp="git push"
+alias gp="git pull"
 alias gs="git status"
 alias gch="git checkout"
 alias gb="git branch"
+alias gl="git log"
+alias gr="git remote"
 
 # Distro-specific
 alias sxi="sudo xbps-install"
 alias sxr="sudo xbps-remove"
 alias xq="xbps-query"
+alias sxp="sudo xbps-pkgdb"
+alias sxa="sudo xbps-alternatives"
+
+alias sz="sudo zzz"
+alias sZ="sudo ZZZ"
 
 # Lazy cds
 alias ..="cd .."

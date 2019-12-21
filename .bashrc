@@ -6,6 +6,9 @@ case $- in
       *) return;;
 esac
 
+# Put bash in vi mode, allows normal mode commands 
+#set -o vi
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
