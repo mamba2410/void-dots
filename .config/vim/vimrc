@@ -25,8 +25,12 @@ set shiftwidth=4
 
 
 " Set filetypes when file is opened
-autocmd BufNewFile,BufReadPost *.c set filetype=c
-autocmd BufNewFile,BufReadPost *.tex set filetype=tex
+autocmd BufNewFile,BufReadPost *.c		set filetype=c
+autocmd BufNewFile,BufReadPost *.tex	set filetype=tex
+autocmd BufNewFile,BufReadPost *.S		set filetype=asm
+autocmd BufNewFile,BufReadPost *.s		set filetype=asm
+autocmd BufNewFile,BufReadPost *.asm	set filetype=asm
+autocmd BufNewFile,BufReadPost *.f90	set filetype=fortran
 "autocmd BufNewFile,BufReadPost *.md set filetype=md
 
 
