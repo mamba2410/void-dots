@@ -81,7 +81,8 @@ monitor = ${env:MONITOR:HDMI-1}
 
 modules-left = i3
 modules-center = 
-modules-right = custom-filesystem memory cpu date 
+;modules-right = custom-filesystem memory cpu date 
+modules-right = memory cpu date
 
 tray-position = right
 
@@ -93,7 +94,8 @@ monitor = ${env:MONITOR:LVDS}
 
 modules-left = i3
 modules-center = 
-modules-right = custom-filesystem memory cpu volume date
+;modules-right = custom-filesystem memory cpu volume date
+modules-right = memory cpu volume date
 
 tray-position = right
 
@@ -123,6 +125,8 @@ format-muted-underline = #783c7e
 [module/custom-filesystem]
 type = custom/script
 tail = true
+; DISABLED FOR NOW
+; It uses df which keeps mountpoints alive, so automount never expires the mountpoint
 exec = "$HOME/.Xscripts/mountpoints.sh"
 click-left = "kill -USR1 $(pgrep --oldest --parent %pid%)"
 
