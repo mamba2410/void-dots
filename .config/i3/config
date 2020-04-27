@@ -61,14 +61,14 @@ exec $TERMINAL -n "maths_python" -e python -q
 
 # custom executes
 exec_always feh --bg-scale $wallpaper_dir/wallpaper.png
-exec_always killall compton; compton -f
+exec_always killall picom; picom -f
 exec_always --no-startup-id $scripts/launch_polybar.sh
 
 ###############################
 # keybinds
 
 bindsym $mod+a exec "$scripts/workspace_3.sh single"
-bindsym $mod+Shift+a exec "$scripts/workspace_3.sh stacked"
+bindsym $mod+Shift+a exec "$scripts/workspace_3.sh latex"
 
 bindsym $mod+b exec "$scripts/blue"
 #bindsym $mod+Shift+b exec
@@ -77,17 +77,14 @@ bindsym $mod+b exec "$scripts/blue"
 bindsym $mod+Shift+c reload
 
 bindsym $mod+d exec rofi -show
-#bindsym $mod+d exec 
 #bindsym $mod+Shift+d exec
 
 bindsym $mod+e layout toggle split
-#bindsym $mod+Shift+e mode "$mode_system"
 bindsym $mod+Shift+e exec "$scripts/power_menu.sh"
 
 bindsym $mod+f exec firefox
 bindsym $mod+Shift+f fullscreen toggle
 
-#bindsym $mod+g exec "$scripts/workspace_3.sh latex"
 bindsym $mod+g exec "$scripts/elatex"
 #bindsym $mod+Shift+g exec
 
@@ -137,7 +134,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+Shift+x exec betterlockscreen -l dimblur 
 
 #bindsym $mod+y exec
-#bindsym $mod+Shift+x exec
+#bindsym $mod+Shift+y exec
 
 #bindsym $mod+z exec
 #bindsym $mod+Shift+z exec

@@ -6,7 +6,7 @@
 .profile
 .xinitrc
 .config/Trolltech.conf
-.config/compton.conf
+.config/picom.conf
 .config/dircolors
 .config/dunst
 .config/gtk-3.0
