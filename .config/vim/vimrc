@@ -3,35 +3,36 @@
 " Get the defaults that most users want.
 "source $VIMRUNTIME/defaults.vim
 
-" Set a bunch of settings
+" Set directories for vim
 set nocompatible
-set noundofile
 set undodir=$XDG_DATA_HOME/vim/undo
 set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
-"set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set viminfo=%,<800,'10,/50,:100,h,f0,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
+" Misc settings
 filetype plugin on
-syntax on
 set encoding=utf-8
 set number relativenumber
-syn sync fromstart
-set t_Co=256
-colorscheme custom
-set ts=4
+set tabstop=4
 set shiftwidth=4
 
+" Syntax highlighting
+syntax on
+set t_Co=256
+colorscheme custom
+autocmd BufEnter * :syntax sync fromstart
 
-" Set filetypes when file is opened
-autocmd BufNewFile,BufReadPost *.c		set filetype=c
-autocmd BufNewFile,BufReadPost *.tex	set filetype=tex
-autocmd BufNewFile,BufReadPost *.S		set filetype=asm
-autocmd BufNewFile,BufReadPost *.s		set filetype=asm
-autocmd BufNewFile,BufReadPost *.asm	set filetype=asm
-autocmd BufNewFile,BufReadPost *.f90	set filetype=fortran
-"autocmd BufNewFile,BufReadPost *.md set filetype=md
+" Set the status line
+set statusline=
+set statusline+=\ %m
+set statusline+=\ %r
+set statusline+=\ %y
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=\ %c:%l/%L
+set statusline+=\ [%p%%]
 
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
@@ -41,11 +42,11 @@ map <C-p> "+P
 " Set a bunch of leader things
 " Default leader is backslash (\)
 let mapleader = " "
-" map <leader>h <esc>:noh<enter>
+" map <leader>h <esc>:noh<CR>
 
 
 " Normal mode remaps
-nnoremap <esc> :noh<enter><esc>
+nnoremap <esc> :noh<CR><esc>
 nnoremap <leader><left>		gT
 nnoremap <leader>h			gT	
 nnoremap <leader><right>	gt
@@ -54,38 +55,16 @@ nnoremap <leader>l			gt
 " Navigating with guides (from LukeSmithxyz)
 "inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 "vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-nnoremap <Space><Space> <Esc>/<++><enter>"_c4l
+nnoremap <Space><Space> <Esc>/<++><CR>"_c4l
 
 
 " Auto run commands when things change
-autocmd BufWritePre * $s/\s\+$//e		" Remove whitespace at end of lines on write
+autocmd BufWritePre * $s/\s\+$//e			" Remove whitespace at end of lines on write
 autocmd BufWritePost ~/.Xresources !xrdb %
 
-" ########## Keypress Macros ##########
+" Setting file types that vim doesn't recognise
+autocmd BufNewFile,BufReadPost *.tex set filetype=tex
 
-" Adding auto key maps to add for loops and all that
-autocmd filetype c inoremap ~f for(){<enter><++><enter>}<enter><esc>3k/(<enter>:noh<enter>a
-autocmd filetype c inoremap ~w while(){<enter><++><enter>}<enter><esc>3k/(<enter>:noh<enter>a
-autocmd filetype c inoremap ~i if(){<enter><++><enter>}<esc>3k0/)<enter>:noh<enter>a
-autocmd filetype c inoremap ~e if(){<enter><++><enter>} else {<enter><++><enter>}<esc>5k0/(<enter>:noh<enter>a
-autocmd filetype c inoremap ~s switch(){<enter>case <++>;break;<enter>default:break;<enter>}<esc>3k0/(<enter>:noh<enter>a
+" Separate file for macros
+source $XDG_CONFIG_HOME/vim/file_macros.vim
 
-" Latex things, like autocompile and remaps
-" autocmd BufWritePost *.tex !pdflatex -output-directory pdf %
-
-autocmd filetype tex inoremap ~eq \begin{equation}<enter><enter>\end{equation}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~*eq \begin{equation*}<enter><enter>\end{equation*}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~c \chapter{}<enter><tab><++><esc>k0/{<enter>:noh<enter>a
-autocmd filetype tex inoremap ~s \section{}<enter><tab><++><esc>k0/{<enter>:noh<enter>a
-autocmd filetype tex inoremap ~ss \subsection{}<enter><tab><++><esc>k0/{<enter>:noh<enter>a
-autocmd filetype tex inoremap ~f \begin{figure}[h!]<enter>\includegraphics[width=\linewidth]{}<enter>\caption{<++>}<enter>\label{fig_<++>}<enter>\end{figure}<enter><++><esc>4k/{<enter>:noh<enter>a
-autocmd filetype tex inoremap ~F \begin{figmulticol}<enter>\centering<enter>\includegraphics[width=\linewidth]{}<enter>\captionof{figure}{<++>}<enter>\label{fig_<++>}<enter>\end{figmulticol}<enter><++><esc>4k/{<enter>:noh<enter>a
-autocmd filetype tex inoremap ~a \begin{align}<enter><enter>\end{align}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~*a \begin{align*}<enter><enter>\end{align*}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~bi \begin{itemize}<enter>\item <enter>\end{itemize}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~be \begin{enumerate}<enter>\item <enter>\end{enumerate}<enter><++><esc>kkA
-autocmd filetype tex inoremap ~m \begin{multicols}{2}<enter><enter>\end{multicols}<esc>kA
-autocmd filetype tex inoremap ~cm \chapter{}<enter>\begin{multicols}{2}<enter><++><enter>\end{multicols}<esc>3k0/{<enter>:noh<enter>a
-
-" markdown things
-autocmd filetype markdown inoremap ~c <code></code><esc>6hi
