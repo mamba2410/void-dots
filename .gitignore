@@ -2,5 +2,6 @@
 .config/vim/.netrwhist
 .config/vim/autoload/*
 .Xscripts/devices.txt
+.Xscripts/ecode_o
 .Xscripts/elatex_o
 

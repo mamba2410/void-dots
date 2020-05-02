@@ -73,7 +73,7 @@ bindsym $mod+Shift+a exec "$scripts/workspace_3.sh latex"
 bindsym $mod+b exec "$scripts/blue"
 #bindsym $mod+Shift+b exec
 
-#bindsym $mod+c exec
+bindsym $mod+c exec "$scripts/ecode"
 bindsym $mod+Shift+c reload
 
 bindsym $mod+d exec rofi -show
