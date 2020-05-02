@@ -26,13 +26,25 @@ autocmd BufEnter * :syntax sync fromstart
 
 " Set the status line
 set statusline=
-set statusline+=\ %m
 set statusline+=\ %r
+set statusline+=\ %m
 set statusline+=\ %y
 set statusline+=\ %F
 set statusline+=%=
 set statusline+=\ %c:%l/%L
 set statusline+=\ [%p%%]
+
+
+" netrw things
+let g:netrw_banner=0
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+
+
+" vim-plug
+call plug#begin('$XDG_DATA_HOME/vim/plugged')
+"Plug 'abudden/taghighlight-automirror'
+call plug#end()
 
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):

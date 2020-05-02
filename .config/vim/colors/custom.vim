@@ -24,50 +24,66 @@ hi lCursor	cterm=NONE		ctermfg=bg	ctermbg=fg   	guifg=fg	guibg=bg
 " Since t_Co=16 is set, can use all 16 Xresources colours
 " Note: color0 should be reserved for background, and color8 is reserved for
 " foreground in Xresources
-hi Comment    	cterm=NONE ctermfg=7	gui=NONE guifg=red2
-hi Constant  	cterm=NONE ctermfg=4	gui=NONE guifg=green3
-hi Identifier	cterm=NONE ctermfg=9	gui=NONE guifg=cyan4
-hi Operator	 	cterm=NONE ctermfg=3
-hi PreProc   	cterm=NONE ctermfg=15	gui=NONE guifg=magenta3
-hi Special   	cterm=NONE ctermfg=14	gui=NONE guifg=deeppink
-hi Statement 	cterm=bold ctermfg=5	gui=bold guifg=blue
-hi Type	     	cterm=NONE ctermfg=1	gui=bold guifg=blue
+hi Comment    	cterm=NONE	ctermfg=7
+hi Constant  	cterm=NONE	ctermfg=4
+hi Identifier	cterm=NONE	ctermfg=14
+hi Operator	 	cterm=NONE	ctermfg=5
+hi PreProc   	cterm=NONE	ctermfg=15	
+hi Special   	cterm=NONE	ctermfg=12	
+hi Statement 	cterm=bold	ctermfg=5
+hi Type	     	cterm=NONE	ctermfg=1	
+
+" TagHighlight groups
+hi link Class 		Type
+hi link DefinedName	Constant
+hi link Enumerator	Type
+hi link EnumerationName Constant
+hi Function			cterm=none	ctermfg=11
+hi GlobalConstant	cterm=bold	ctermfg=14
+hi GlobalVariable	cterm=none	ctermfg=3
+hi LocalVariable	cterm=none	ctermfg=fg
+hi Member			cterm=none	ctermfg=11
+hi link Struture 	Type
+hi link Typedef 	Type
+hi link Union		Type
+
 
 " Now to set Minor highlight groups
-hi DiffAdd    	ctermbg=LightBlue    	guibg=LightBlue
-hi DiffChange 	ctermbg=LightMagenta 	guibg=LightMagenta
-hi DiffDelete 	ctermfg=Blue			ctermbg=7 gui=bold guifg=Blue guibg=LightCyan
-hi DiffText   	ctermbg=Red	   			cterm=bold gui=bold guibg=Red
-hi Directory  	ctermfg=DarkBlue	   	guifg=Blue
-hi Error		ctermfg=fg				ctermbg=7
-hi ErrorMsg   	ctermfg=fg	   			ctermbg=7
-hi FoldColumn 	ctermfg=DarkBlue	   	ctermbg=Grey     guibg=Grey	    guifg=DarkBlue
-hi Folded     	ctermbg=Grey	   		ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
-hi IncSearch  	cterm=reverse	   		gui=reverse
-hi LineNr     	ctermfg=13	   			guifg=Brown
-hi MatchParen	ctermfg=fg				ctermbg=7
-hi ModeMsg    	cterm=bold	   			gui=bold
-hi MoreMsg    	ctermfg=DarkGreen    	gui=bold guifg=SeaGreen
-hi NonText    	ctermfg=Blue	   		gui=bold guifg=gray guibg=white
-hi Pmenu      	guibg=LightBlue
-hi PmenuSel   	ctermfg=White	   		ctermbg=DarkBlue  guifg=White  guibg=DarkBlue
-hi Question   	ctermfg=DarkGreen    	gui=bold guifg=SeaGreen
-hi SpecialKey	ctermfg=DarkBlue	   	guifg=Blue
-hi StatusLine	cterm=bold				ctermbg=7 ctermfg=fg
-hi StatusLineNC	cterm=bold	   			ctermbg=blue ctermfg=black  guibg=gold guifg=blue
-hi Title     	ctermfg=DarkMagenta  	gui=bold guifg=Magenta
-hi Todo			ctermfg=15				ctermbg=0
-hi VertSplit  	cterm=reverse	   		gui=reverse
-hi Visual     	cterm=NONE	ctermfg=bg	ctermbg=fg	 gui=reverse guifg=Grey guibg=fg
-hi VisualNOS  	cterm=underline,bold 	gui=underline,bold
-hi WarningMsg 	ctermfg=11	   		guifg=Red
-hi WildMenu   	ctermfg=0	   		ctermbg=7    guibg=Yellow guifg=Black
-
-hi TabLineFill	ctermfg=bg	ctermbg=bg
-hi TabLineSel	cterm=bold	ctermfg=fg	ctermbg=bg
-hi TabLine		ctermfg=15	ctermbg=bg
+hi DiffAdd    	cterm=none		ctermfg=fg	ctermbg=14    	
+hi DiffChange 	cterm=none		ctermfg=fg	ctermbg=13 	
+hi DiffDelete 	cterm=none		ctermfg=12	ctermbg=7
+hi DiffText   	cterm=bold		ctermfg=fg	ctermbg=9
+hi Directory  	cterm=none		ctermfg=4
+hi Error		cterm=none		ctermfg=fg	ctermbg=7
+hi ErrorMsg   	cterm=none		ctermfg=fg 	ctermbg=7
+hi FoldColumn 	cterm=none		ctermfg=4
+hi Folded     	cterm=none		ctermfg=4	ctermfg=7
+hi IncSearch  	cterm=reverse
+hi Label		cterm=bold		ctermfg=2
+hi LineNr     	cterm=none		ctermfg=13	   			
+hi MatchParen	cterm=none		ctermfg=fg	ctermbg=7
+hi ModeMsg    	cterm=bold
+hi MoreMsg    	cterm=none		ctermfg=2
+hi NonText    	cterm=none		ctermfg=12
+hi Pmenu      	cterm=none		ctermfg=fg	ctermbg=7
+hi PmenuSel   	cterm=none		ctermfg=bg	ctermbg=15
+hi Question   	cterm=none		ctermfg=2
+hi SpecialKey	cterm=none		ctermfg=4
+hi StatusLine	cterm=bold		ctermfg=fg	ctermbg=7
+hi StatusLineNC	cterm=bold		ctermfg=15	ctermbg=7
+hi StatusLineTerm	cterm=none	ctermfg=fg	ctermbg=7
+hi TabLineFill	cterm=none		ctermfg=fg	ctermbg=7
+hi TabLineSel	cterm=bold		ctermfg=fg	ctermbg=7
+hi TabLine		cterm=none		ctermfg=15	ctermbg=7
+hi Title     	cterm=none		ctermfg=2
+hi Todo			cterm=none		ctermfg=15	ctermbg=bg
+hi VertSplit  	cterm=none		ctermfg=fg
+hi Visual     	cterm=none		ctermfg=bg	ctermbg=fg	
+hi VisualNOS  	cterm=underline,bold 	
+hi WarningMsg 	cterm=none		ctermfg=11	   		
+hi WildMenu   	cterm=none		ctermfg=0	ctermbg=7   
 
 " syntax highlighting
-" source /home/callum/.vim/colors/custom-syntax.vim
 source $XDG_CONFIG_HOME/vim/colors/custom-syntax.vim
+
 " vim: sw=2

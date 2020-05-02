@@ -18,7 +18,7 @@ set 				$bar-color			#404136
 set 				$inactive-bg-color  #282b22
 set_from_resource 	$text-color 		foreground
 set 				$urgent-bg-color    #8C7452
-set_from_resource	$highlight-color	color14
+set_from_resource	$highlight-color	color12
 
 # Workspace names
 set $w1 "1:"

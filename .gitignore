@@ -1,4 +1,6 @@
-**/.netrwhist
 .config/gtk-2.0/gtkfilechooser.ini
+.config/vim/.netrwhist
+.config/vim/autoload/*
 .Xscripts/devices.txt
 .Xscripts/elatex_o
+

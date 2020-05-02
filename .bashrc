@@ -40,7 +40,7 @@ color_prompt=yes
 
 # Customise prompt
 #export PS1="\[$(tput bold)\]\[$(tput setaf 9)\][\[$(tput setaf 10)\]\u\[$(tput setaf 9)\]@\[$(tput setaf 13)\]\h \[$(tput setaf 14)\]\W\[$(tput setaf 9)\]]\[$(tput sgr0)\]\\$ "
-export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 14)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
+export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 12)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
 
 # Read aliases from a separate file
 if [ -f ~/.bash_aliases ]; then
