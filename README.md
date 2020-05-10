@@ -1,46 +1,61 @@
-<h1>Dotfiles for my linux system</h1>
+# Dotfiles for my linux system
 
 Dotfiles for my Void\* linux system.
 
-<ul>
-<li>WM: i3-gaps</li>
-<li>Compositor: Compton</li>
-<li>Bar: Polybar</li>
-<li>Notifications: Dunst</li>
-<li>Menus: Rofi</li>
-<li>Editor: Neovim</li>
-<li>Lock Screen: betterlockscreen</li>
-<li>Terminal: Luke Smith's build of st</li>
-<li>GTK Theme: <a href="https://www.gnome-look.org/p/1254680/">Obscure-Green</a></li>
-<li>GTK Icons: <a href="https://www.opendesktop.org/p/1218961/">Green-Maia</a></li>
-<li>qt4/5 applications should be able to use the GTK2 theme, if not, install <code>qt5-styleplugins</code></li>
-</ul>
 
-<h3>Installation</h3>
-<code>git clone https://github.com/mamba2410/void-dots</code><br>
-<code>cd void-dots</code><br>
-<code>./install</code><br>
+- WM: i3-gaps
+- Compositor: Compton
+- Bar: Polybar
+- Notifications: Dunst
+- Menus: Rofi
+- Editor: Neovim
+- Lock Screen: betterlockscreen
+- Terminal: Luke Smith's build of st
+- GTK Theme: [Obscure-Green](https://www.gnome-look.org/p/1254680)
+- GTK Icons: [Green-Maia](https://www.opendesktop.org/p/1218961/)
+- qt4/5 applications should be able to use the GTK2 theme, if not, install `qt5-styleplugins`
+
+
+## Installation
+```
+git clone https://github.com/mamba2410/void-dots
+cd void-dots
+./install
+```
 Then follow the prompts on screen.
 
-<h3>Update</h3>
-If you made any changes, run <code>git stash</code><br>
-Next, run<br>
-<code>git pull</code><br>
-<code>./linkfiles</code><br>
-If you stashed changes, pop them with <code>git stash pop</code>.
+## Update
+It is advised to create a new branch and commit any changes to that branch.
+```
+git checkout -b myBranch
+```
+This allows for easy updating with
+```
+git checkout master
+git pull
+git checkout myBranch
+git rebase master
 
-<h3>What the scripts do</h3>
-<ul>
-<li><code>install</code> is the installer, it allows the user to create a new home tree, move the repository, then passes over to <code>linkfiles</code> for linking.
-<li><code>linkfiles</code> helps you manage the symlinks, either moving, deleting or updating the links. To stop linking a file, remove the file directory in <code>targets</code> and you should be free to add your own config file in its place.<br>
-<code>linkfiles</code> can take three arguments, the source for installation (default: the users current working directory), the destination for installation (default: $HOME), and the directory of where to store moved dotfiles (default: $HOME/.old_dots/_current-time_/).
-</ul>
+```
 
-<h3>More Customisation</h3>
-The file <code>targets</code> contains all of the target dotfiles to link, with paths relative to <code>$HOME</code>. If you don't want a file linked, remove the path in that file and delete the symlink that is already there.
+## What the scripts do
+- `install` is the main install script. It allows the user to create a new customised home tree (see MOre Customisation), it prompts the user to move the repository and then passes over to `linkfiles`.
+- `linkfiles` is what manages the symlinks between your home directory and the repository. It asks the user if they would like to move, delete or update the links.
+	To add or remove a file from linking, see More Customisation for details.
+	`linkfiles` can take three arguments:
+	- `source` - The source directory for installation. Defaults to the users current working directory.
+	- `dest` - The destination directory to link to. Defaults to `$HOME`.
+	- `old_dots` - The directory of where to store the old dotfiles. Defaults to `$HOME/.old_dots/<current-time>`
 
-The file <code>dirs</code> contains the directories that will be created when <code>install</code> is run and the option is selected. As with <code>targets</code>, all of the directories are relative to <code>$HOME</code> and the user can add or remove directories as they so choose.
+## More Customisation
+The `targets` file allows the user to remove targets to symlink when running `linkfiles`. The paths are relative to `source` and `dest`.
+Note that a symlink will not be removed on next `./linkfiles`. This will have to me manually removed if it exists.
 
-\* Included are/will be branches for other distros, like raspbian.
-The raspbian branch is similar, but removes most of the the X components, like i3, polybar etc.
-I haven't figured out what to do with it yet, but it's mainly so that I can have consistent aliases/shell prompts across the systems.
+The `dirs` file contains the directories to be created when `install` is run. The directories are relative to `$HOME` and the user may change them as they so choose.
+
+## Branches
+- `master` - The main branch where all commits are
+- `thinkpad` - A branch with commit patches for a Thinkpad X230
+- `dwm` - Experimenting with changing to dwm
+
+Other branches may be added in the future, like a non-gui branch for headless systems.
