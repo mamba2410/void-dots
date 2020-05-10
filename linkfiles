@@ -41,6 +41,13 @@ case $user_choice in
 		;;
 esac
 
+echo "Creating directories for programs"
+mkdir -pv "$HOME/.local/share/vim/backup"
+mkdir -pv "$HOME/.local/share/vim/swap"
+mkdir -pv "$HOME/.local/share/vim/undo"
+mkdir -pv "$HOME/.local/share/vim/plugged"
+mkdir -pv "$HOME/.local/share/bash"
+
 
 echo "Linking files to destination '$destination_base'"
 
