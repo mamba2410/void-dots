@@ -1,7 +1,6 @@
+.config/bash/cd
 .config/gtk-2.0/gtkfilechooser.ini
 .config/vim/.netrwhist
 .config/vim/autoload/*
-.Xscripts/devices.txt
-.Xscripts/ecode_o
-.Xscripts/elatex_o
-
+.local/share/xscripts/dir*
+.local/share/xscripts/devices.txt

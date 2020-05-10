@@ -1,5 +1,5 @@
 #!/bin/sh
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+[ -f $XDG_CONFIG_HOME/X11/xresources ] && xrdb -merge $XDG_CONFIG_HOME/X11/xresources
 
 if test -x "$DBUS_SESSION_BUS_ADDRESS" ; then
 	eval 'dbus-launch --sh-syntax --exit-with-session'

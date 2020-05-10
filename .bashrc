@@ -43,11 +43,11 @@ color_prompt=yes
 export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 12)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
 
 # Read aliases from a separate file
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f $XDG_CONFIG_HOME/bash/aliases ]; then
+    . $XDG_CONFIG_HOME/bash/aliases
 fi
-if [ -f ~/.bash_cd ]; then
-	. ~/.bash_cd
+if [ -f "$XDG_CONFIG_HOME/bash/cd" ]; then
+	. "$XDG_CONFIG_HOME/bash/cd"
 fi
 
 eval "$(dircolors "$XDG_CONFIG_HOME"/dircolors)"

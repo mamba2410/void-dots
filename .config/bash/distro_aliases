@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+# Distro specific aliases
+alias sxi="sudo xbps-install"
+alias sxr="sudo xbps-remove"
+alias xq="xbps-query"
+alias sxp="sudo xbps-pkgdb"
+alias sxa="sudo xbps-alternatives"
+
+alias sz="sudo zzz"
+alias sZ="sudo ZZZ"
