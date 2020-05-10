@@ -8,8 +8,8 @@ set $mod Mod4
 # Font for window titles.
 font Monospace 11 
 
-set $scripts $HOME/.Xscripts
-set $wallpaper_dir $HOME/pic/.wallpaper
+set $scripts		$XDG_DATA_HOME/xscripts
+set $wallpaper_dir	$XDG_DATA_HOME/wallpaper
 
 # Colours for theme
 set_from_resource	$bg-color 			background
@@ -60,32 +60,32 @@ exec $TERMINAL -n "maths_python" -e python -q
 
 
 # custom executes
-exec_always feh --bg-scale $wallpaper_dir/wallpaper.png
-exec_always killall picom; picom -f
-exec_always --no-startup-id $scripts/launch_polybar.sh
+exec_always "feh --bg-scale $wallpaper_dir/wallpaper.png"
+exec_always "killall picom; picom -f"
+exec_always --no-startup-id "$scripts/xs-launch-polybar.sh"
 
 ###############################
 # keybinds
 
-bindsym $mod+a exec "$scripts/workspace_3.sh single"
-bindsym $mod+Shift+a exec "$scripts/workspace_3.sh latex"
+bindsym $mod+a exec "$scripts/xs-i3-w3.sh single"
+bindsym $mod+Shift+a exec "$scripts/xs-i3-w3.sh latex"
 
-bindsym $mod+b exec "$scripts/blue"
+bindsym $mod+b exec "$scripts/xs-blue.sh"
 #bindsym $mod+Shift+b exec
 
-bindsym $mod+c exec "$scripts/ecode"
+bindsym $mod+c exec "$scripts/xs-cd-term.sh $scripts/dirs_code.txt code 2"
 bindsym $mod+Shift+c reload
 
 bindsym $mod+d exec rofi -show
 #bindsym $mod+Shift+d exec
 
 bindsym $mod+e layout toggle split
-bindsym $mod+Shift+e exec "$scripts/power_menu.sh"
+bindsym $mod+Shift+e exec "$scripts/xs-power-menu.sh"
 
 bindsym $mod+f exec firefox
 bindsym $mod+Shift+f fullscreen toggle
 
-bindsym $mod+g exec "$scripts/elatex"
+bindsym $mod+g exec "$scripts/xs-cd-term.sh $scripts/dirs_latex.txt latex 2"
 #bindsym $mod+Shift+g exec
 
 bindsym $mod+h focus left
@@ -131,7 +131,7 @@ bindsym $mod+w layout tabbed
 #bindsym $mod+Shift+w exec
 
 #bindsym $mod+x exec
-bindsym $mod+Shift+x exec betterlockscreen -l dimblur 
+bindsym $mod+Shift+x exec "betterlockscreen -l dimblur"
 
 #bindsym $mod+y exec
 #bindsym $mod+Shift+y exec
@@ -189,9 +189,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Right focus right
 bindsym $mod+Shift+Right move right
 
-bindsym --release Print exec "$scripts/screenshot.sh all" 
-bindsym --release shift+Print exec "$scripts/screenshot.sh select" 
-bindsym --release $mod+Print exec "$scripts/screenshot.sh single"
+bindsym --release Print exec "$scripts/xs-screenshot.sh all" 
+bindsym --release shift+Print exec "$scripts/xs-screenshot.sh select" 
+bindsym --release $mod+Print exec "$scripts/xs-screenshot.sh single"
 
 
 ###############################

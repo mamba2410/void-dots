@@ -1,6 +1,7 @@
 #!/bin/sh
 
-devices=$(cat ~/.Xscripts/devices.txt)
+devices_file="$XDG_DATA_HOME/xscripts/bluetooth_devices.txt"
+devices=$(cat $devices_file)
 
 choice=$( echo "$devices" | rofi -dmenu -p "Bluetooth connect")
 

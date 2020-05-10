@@ -1,5 +1,4 @@
 .Xresources
-.Xscripts
 .bash_aliases
 .bash_profile
 .bashrc
@@ -17,4 +16,5 @@
 .config/polybar
 .config/rofi
 .config/user-dirs.dirs
-pic/.wallpaper
+.local/share/xscripts
+.local/share/wallpaper
