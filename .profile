@@ -4,6 +4,10 @@ export TERMINAL="st"
 export EDITOR="nvim"
 PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.scripts:/opt/texlive/2018/bin/x86_64-linux"
 
+[ -z "$XDG_DATA_HOME" ] || export XDG_DATA_HOME="$HOME/.local/share"
+[ -z "$XDG_CONFIG_HOME" ] || export XDG_CONFIG_HOME="$HOME/.config"
+[ -z "$XDG_CACHE_HOME" ] || export XDG_CACHE_HOME="$HOME/.cache"
+
 
 # Set a bunch of envirinment variables to clean home dir
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
