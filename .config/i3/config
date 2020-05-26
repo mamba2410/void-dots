@@ -85,7 +85,7 @@ bindsym $mod+Shift+e exec "$scripts/xs-power-menu.sh"
 bindsym $mod+f exec firefox
 bindsym $mod+Shift+f fullscreen toggle
 
-bindsym $mod+g exec "$scripts/xs-cd-term.sh $scripts/dirs_latex.txt latex 2"
+bindsym $mod+g exec "$scripts/xs-i3-w3.sh latex; $scripts/xs-cd-term.sh $scripts/dirs_latex.txt latex 2"
 #bindsym $mod+Shift+g exec
 
 bindsym $mod+h focus left
