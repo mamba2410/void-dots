@@ -10,4 +10,5 @@ nm-applet &
 
 xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
+
 exec i3

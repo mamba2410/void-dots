@@ -1,3 +1,0 @@
-em			/home/callum/repos/uni-git/ph3007/latex-notes
-quantum		/home/callum/repos/uni-git/ph3062/latex-notes
-thermal		/home/callum/repos/uni-git/ph3012/latex-notes
