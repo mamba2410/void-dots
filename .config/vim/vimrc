@@ -43,8 +43,12 @@ let g:netrw_liststyle=3
 
 " vim-plug
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
-"Plug 'abudden/taghighlight-automirror'
+Plug 'abudden/taghighlight-automirror'
 call plug#end()
+
+" Syntax highlighting groups
+let asmsyntax='armasm'
+let filetype_inc='armasm'
 
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
@@ -63,6 +67,11 @@ nnoremap <leader><left>		gT
 nnoremap <leader>h			gT	
 nnoremap <leader><right>	gt
 nnoremap <leader>l			gt
+
+" Press F10 to get the highlight group of token under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Navigating with guides (from LukeSmithxyz)
 "inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
