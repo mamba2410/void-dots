@@ -76,13 +76,20 @@ hi StatusLineTerm	cterm=NONE	ctermfg=fg	ctermbg=7
 hi TabLineFill	cterm=NONE	ctermfg=fg	ctermbg=7
 hi TabLineSel	cterm=bold	ctermfg=fg	ctermbg=7
 hi TabLine		cterm=NONE	ctermfg=15	ctermbg=7
-hi Title     	cterm=NONE	ctermfg=1	ctermbg=7
+hi Title     	cterm=bold	ctermfg=2
+hi Underlined	cterm=underline	ctermfg=fg
 hi Todo			cterm=NONE	ctermfg=15	ctermbg=bg
 hi VertSplit  	cterm=NONE	ctermfg=fg
 hi Visual     	cterm=NONE	ctermfg=bg	ctermbg=fg	
 hi VisualNOS  	cterm=NONE	ctermfg=1	ctermbg=7
 hi WarningMsg 	cterm=NONE	ctermfg=11	ctermbg=bg
 hi WildMenu   	cterm=NONE	ctermfg=bg	ctermbg=7   
+
+" Group links
+
+" Extra groups
+hi markdownCode		cterm=NONE	ctermfg=10
+hi markdownLinkText	cterm=NONE	ctermfg=14
 
 " syntax highlighting
 source $XDG_CONFIG_HOME/vim/colors/custom-syntax.vim
