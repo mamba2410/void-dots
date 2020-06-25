@@ -9,6 +9,14 @@ n_term=$3
 #rofi_options_file="$XDG_DATA_HOME/xscripts/$1" 
 rofi_options_file="$1"
 
+rofi_options_file_dirname="$(dirname $rofi_options_file)"
+[ ! -d $rofi_options_file_dirname ] && mkdir -p $rofi_options_file_dirname
+
+ if [ ! -f $rofi_options_file ]; then
+	echo "home\t/$HOME" > $rofi_options_file
+	echo "File '$rofi_options_file' not found, creating new file"
+ fi
+
 rofi_err_msg="cat can't open file:\n~${rofi_options_file##$HOME}"
 
 rofi_options=""
