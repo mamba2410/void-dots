@@ -47,6 +47,7 @@ mkdir -pv "$HOME/.local/share/vim/swap"
 mkdir -pv "$HOME/.local/share/vim/undo"
 mkdir -pv "$HOME/.local/share/vim/plugged"
 mkdir -pv "$HOME/.local/share/bash"
+mkdir -pv "$HOME/.local/share/xscripts.d"
 
 
 echo "Linking files to destination '$destination_base'"
