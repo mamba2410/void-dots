@@ -85,6 +85,8 @@ autocmd BufWritePost ~/.Xresources !xrdb %
 
 " Setting file types that vim doesn't recognise
 autocmd BufNewFile,BufReadPost *.tex set filetype=tex
+autocmd BufNewFile,BufReadPost *.S set filetype=armasm
+autocmd BufNewFile,BufReadPost *.s set filetype=armasm
 
 " Separate file for macros
 source $XDG_CONFIG_HOME/vim/file_macros.vim
