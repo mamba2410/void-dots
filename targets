@@ -6,10 +6,9 @@
 .config/dunst
 .config/gtk-3.0
 .config/gtk-2.0
-.config/i3
 .config/nvim
 .config/picom.conf
-.config/polybar
+.config/vim
 .config/rofi
 .config/Trolltech.conf
 .config/user-dirs.dirs

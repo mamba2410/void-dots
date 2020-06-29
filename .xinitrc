@@ -6,10 +6,13 @@ if test -x "$DBUS_SESSION_BUS_ADDRESS" ; then
 	echo "DBUS per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
 fi
 
-nm-applet &
-
 xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
 xrandr --output DVI-D-1 --right-of HDMI-1
 
-exec i3
+picom -f &
+feh --bg-scale "$XDG_DATA_HOME/wallpaper/wallpaper.png" &
+#$TERMINAL -n maths_python -e python -q &
+$XDG_DATA_HOME/xscripts/xs-dwm-status.sh &
+
+exec dwm
