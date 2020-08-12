@@ -13,7 +13,7 @@ rofi_options_file_dirname="$(dirname $rofi_options_file)"
 [ ! -d $rofi_options_file_dirname ] && mkdir -p $rofi_options_file_dirname
 
  if [ ! -f $rofi_options_file ]; then
-	echo "home\t/$HOME" > $rofi_options_file
+	echo "home\t$HOME" > $rofi_options_file
 	echo "File '$rofi_options_file' not found, creating new file"
  fi
 
@@ -30,7 +30,8 @@ if [ -z $rofi_choice ]; then
 	exit
 fi
 
-rofi_choice_path=$(grep "^$rofi_choice" "$rofi_options_file" | awk '{print $2}')
+# Use pearl syntax (-P) to search for exact choice followed by tabs or spaces
+rofi_choice_path=$(grep -P "^$rofi_choice[ \t]+" "$rofi_options_file" | awk '{print $2}')
 
 if [ -z $rofi_choice_path ]; then
 	echo "Not in file, taking choice as path"

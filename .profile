@@ -25,6 +25,7 @@ export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 export XAUTHORITY="$XDG_DATA_HOME"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 
@@ -37,3 +38,5 @@ export QT_QPA_PLATFORMTHEME=gtk2
 #if [ -n "BASH" ] && [ -r ~/.bashrc ]; then
 #	. ~/.bashrc
 #fi
+
+export PATH="/home/callum/.local/share/cargo/bin:$PATH"

@@ -18,9 +18,9 @@ case $1 in
 		file_path=$(scrot $file_name --exec 'echo $f')
 		;;
 	*)
-		echo "Unrecognised argument $1"
-		return
+		notify-send "Unrecognised argument" "$1"
+		exit
 		;;
 esac
 
-notify-send "Screenshot taken" "$file_path"
+notify-send "Screenshot taken ($1)" "$file_path"
