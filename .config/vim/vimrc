@@ -40,10 +40,13 @@ let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
+let g:gasCppComments=1
+
 
 " vim-plug
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'abudden/taghighlight-automirror'
+Plug 'shirk/vim-gas'
 call plug#end()
 
 " Syntax highlighting groups
