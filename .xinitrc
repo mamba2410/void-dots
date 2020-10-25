@@ -10,5 +10,6 @@ nm-applet &
 
 xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
+xrandr --output DVI-D-1 --right-of HDMI-1
 
 exec i3
