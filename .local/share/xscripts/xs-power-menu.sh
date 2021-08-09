@@ -5,11 +5,13 @@ choice=$( echo -e $options | rofi -dmenu -p "Power Menu" -theme "power_menu" )
 case $choice in
 	"Shutdown")
 		echo "Shutting down..."
-		sudo shutdown -h now
+		shutdown.sh shutdown
+		#sudo shutdown -h now
 		;;
 	"Reboot")
 		echo "Rebooting..."
-		sudo shutdown -r now
+		shutdown.sh reboot
+		#sudo shutdown -r now
 		;;
 	"Logout")
 		echo "Logging out..."

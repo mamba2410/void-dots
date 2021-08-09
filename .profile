@@ -28,6 +28,11 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export TEXMFHOME="$XDG_DATA_HOME"/texlive
+
+export PICO_TOOLCHAIN=$HOME/repos/pico/arm-none-eabi-gcc/bin
+export PICO_SDK_REPO=$HOME/repos/pico/sdk
+export PICO_SDK_PATH=$HOME/repos/pico/sdk
 
 #[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 
