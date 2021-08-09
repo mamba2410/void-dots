@@ -10,7 +10,15 @@ xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
 xrandr --output DVI-D-1 --right-of HDMI-1
 
-picom -f &
+# Mouse sensitivity modifier, range [-1,+1], default 0
+xinput --set-prop 11 'libinput Accel Speed' 0.8
+
+export GTK_IM_MODULE='uim'
+export QT_IM_MODULE='uim'
+uim-xim &
+export XMODIFIERS='@im=uim'
+
+picom -fb &
 feh --bg-scale "$XDG_DATA_HOME/wallpaper/wallpaper.png" &
 #$TERMINAL -n maths_python -e python -q &
 $XDG_DATA_HOME/xscripts/xs-dwm-status.sh &
