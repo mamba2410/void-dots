@@ -24,3 +24,4 @@ case $1 in
 esac
 
 notify-send "Screenshot taken ($1)" "$file_path"
+xclip -selection c -t image/png "$file_path"
