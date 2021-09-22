@@ -29,11 +29,14 @@
 
 #window {
     background-color: @background;
+	width: 40ch;
     border: 0;
     padding: 2.5ch;
 }
 
 #mainbox {
+	fixed-height: 1;
+	lines: 6;
     border: 0;
     padding: 0;
 }
@@ -60,7 +63,7 @@ inputbar {
 }
 
 #listview {
-    fixed-height: 0;
+	lines: inherit;
     border: 2px 0px 0px;
     border-color: @border-color;
     spacing: 2px;
@@ -158,4 +161,13 @@ inputbar {
 #prompt {
     spacing: 0;
     text-color: @normal-foreground;
+}
+
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+#element-icon {
+    background-color: inherit;
 }

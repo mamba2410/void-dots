@@ -29,30 +29,38 @@
 
 #window {
     background-color: @background;
-    border: 0;
+	width: 80ch;
+	lines: 8;
+	columns: 1;
+    border: 1;
     padding: 2.5ch;
 }
 
 #mainbox {
     border: 0;
     padding: 0;
+	text-color: @foreground;
+	lines: inherit;
+	fixed-height: inherit;
 }
 
 #message {
     border: 2px 0px 0px;
     border-color: @border-color;
     padding: 1px;
+	text-color: @foreground;
 }
 
 #textbox {
     text-color: @foreground;
 }
 
-inputbar {
+#inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+	text-color: @foreground;
 }
 
-textbox-prompt-colon {
+#textbox-prompt-colon {
     expand: false;
     str: ":";
     margin: 0px 0.3em 0em 0em;
@@ -60,7 +68,9 @@ textbox-prompt-colon {
 }
 
 #listview {
-    fixed-height: 0;
+	text-color: @foreground;
+    fixed-height: inherit;
+	lines: inherit;
     border: 2px 0px 0px;
     border-color: @border-color;
     spacing: 2px;
@@ -71,6 +81,7 @@ textbox-prompt-colon {
 #element {
     border: 0;
     padding: 1px;
+	text-color: @foreground;
 }
 
 #element.normal.normal {
@@ -123,11 +134,13 @@ textbox-prompt-colon {
     border: 0;
     handle-width: 8px;
     padding: 0;
+	text-color: @foreground;
 }
 
 #sidebar {
     border: 2px 0px 0px;
     border-color: @border-color;
+	text-color: @foreground;
 }
 
 #button {
@@ -159,3 +172,18 @@ textbox-prompt-colon {
     spacing: 0;
     text-color: @normal-foreground;
 }
+
+#mode-switcher {
+	border: 2px 0px 0px;
+	border-color: @border-color;
+}
+
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+#element-icon {
+    background-color: inherit;
+}
+
