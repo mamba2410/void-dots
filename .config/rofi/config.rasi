@@ -1,6 +1,5 @@
 configuration {
 	modi: "window,run,ssh";
-	theme: "./rofi_theme.rasi";
 	font: "Monospace 14";
 	location: 0;
 
@@ -15,4 +14,6 @@ configuration {
 	ssh {
 	}
 }
+
+@theme "./rofi_theme.rasi"
 
