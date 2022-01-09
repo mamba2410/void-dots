@@ -31,3 +31,4 @@ alias gm="git merge"
 
 # Distro-specific
 . $XDG_CONFIG_HOME/bash/distro_aliases
+[ -f "$XDG_CONFIG_HOME/bash/machine_aliases" ] && . $XDG_CONFIG_HOME/bash/machine_aliases
