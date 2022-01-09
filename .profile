@@ -8,8 +8,10 @@ export EDITOR="nvim"
 [ -z "$XDG_CONFIG_HOME" ] || export XDG_CONFIG_HOME="$HOME/.config"
 [ -z "$XDG_CACHE_HOME" ] || export XDG_CACHE_HOME="$HOME/.cache"
 
-PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.scripts:/opt/texlive/2018/bin/x86_64-linux"
+PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:$XDG_DATA_HOME/xscripts"
+PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
+PATH="$PATH:/opt/texlive/2018/bin/x86_64-linux"
 
 # Set a bunch of envirinment variables to clean home dir
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
@@ -38,10 +40,10 @@ export PICO_SDK_PATH=$HOME/repos/pico/sdk
 
 export QT_QPA_PLATFORMTHEME=gtk2
 
+. $XDG_CONFIG_HOME/bash/git-prompt.sh
 . ~/.bashrc
 ## Once done loading .profile, look in .bashrc
 #if [ -n "BASH" ] && [ -r ~/.bashrc ]; then
 #	. ~/.bashrc
 #fi
 
-export PATH="/home/callum/.local/share/cargo/bin:$PATH"
