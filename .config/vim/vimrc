@@ -15,8 +15,15 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 filetype plugin on
 set encoding=utf-8
 set number relativenumber
+
+" Text options
 set tabstop=4
 set shiftwidth=4
+"autocmd filetype markdown set textwidth=120		" insert newline before 120 characters
+autocmd filetype markdown set textwidth=0			" insert newline 1 character before window end
+autocmd filetype markdown set wrapmargin=1
+"autocmd filetype markdown set formatoptions+=t
+"autocmd filetype markdown set formatoptions-=l
 
 " Syntax highlighting
 syntax on
@@ -40,15 +47,25 @@ let g:netrw_banner=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
-let g:gasCppComments=1
-
-
 " vim-plug
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'abudden/taghighlight-automirror'
 Plug 'shirk/vim-gas'
 Plug 'NewLunarFire/wla-vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
+
+" misc plugin options
+let g:gasCppComments=1
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_math=1
+let g:vim_markdown_strikethrough=1
+let g:vim_markdown_auto_insert_bullets=0
+let g:vim_markdown_new_list_item_indent=0
+
 
 " Syntax highlighting groups
 let asmsyntax='armasm'
