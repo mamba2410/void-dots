@@ -13,7 +13,7 @@ setxkbmap gb -option "caps:swapescape"
 xrandr --output DVI-D-1 --right-of HDMI-1
 
 # Mouse sensitivity modifier, range [-1,+1], default 0
-xinput --set-prop 11 'libinput Accel Speed' 0.8
+#xinput --set-prop 11 'libinput Accel Speed' 0.8
 
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
