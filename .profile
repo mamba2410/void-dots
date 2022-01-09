@@ -40,7 +40,6 @@ export PICO_SDK_PATH=$HOME/repos/pico/sdk
 
 export QT_QPA_PLATFORMTHEME=gtk2
 
-. $XDG_CONFIG_HOME/bash/git-prompt.sh
 . ~/.bashrc
 ## Once done loading .profile, look in .bashrc
 #if [ -n "BASH" ] && [ -r ~/.bashrc ]; then

@@ -38,10 +38,6 @@ color_prompt=yes
 # Only works when in X, so shouldn't be here
 #xset r rate 250 50
 
-# Customise prompt
-#export PS1="\[$(tput bold)\]\[$(tput setaf 9)\][\[$(tput setaf 10)\]\u\[$(tput setaf 9)\]@\[$(tput setaf 13)\]\h \[$(tput setaf 14)\]\W\[$(tput setaf 9)\]]\[$(tput sgr0)\]\\$ "
-export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 12)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
-
 # Read aliases from a separate file
 if [ -f $XDG_CONFIG_HOME/bash/aliases ]; then
     . $XDG_CONFIG_HOME/bash/aliases
@@ -49,8 +45,16 @@ fi
 if [ -f "$XDG_CONFIG_HOME/bash/cd" ]; then
 	. "$XDG_CONFIG_HOME/bash/cd"
 fi
+if [ -f "$XDG_CONFIG_HOME/bash/git-prompt.sh" ]; then
+	. $XDG_CONFIG_HOME/bash/git-prompt.sh
+fi
 
 eval "$(dircolors "$XDG_CONFIG_HOME"/dircolors)"
+
+
+# Customise prompt
+#export PS1="\[$(tput bold)\]\[$(tput setaf 9)\][\[$(tput setaf 10)\]\u\[$(tput setaf 9)\]@\[$(tput setaf 13)\]\h \[$(tput setaf 14)\]\W\[$(tput setaf 9)\]]\[$(tput sgr0)\]\\$ "
+export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 12)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W$(tput setaf 14)\$(__git_ps1)\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
