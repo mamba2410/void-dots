@@ -51,10 +51,22 @@ fi
 
 eval "$(dircolors "$XDG_CONFIG_HOME"/dircolors)"
 
-
 # Customise prompt
-#export PS1="\[$(tput bold)\]\[$(tput setaf 9)\][\[$(tput setaf 10)\]\u\[$(tput setaf 9)\]@\[$(tput setaf 13)\]\h \[$(tput setaf 14)\]\W\[$(tput setaf 9)\]]\[$(tput sgr0)\]\\$ "
-export PS1="\[$(tput bold)\]\[$(tput setaf 5)\][\[$(tput setaf 12)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]\W$(tput setaf 14)\$(__git_ps1)\[$(tput setaf 5)\]]\[$(tput sgr0)\]\\$ "
+# Define colours
+PS_BOLD="\[$(tput bold)\]"
+PS_NORM="\[$(tput sgr0)\]"
+PS_COL1="\[$(tput setaf 1)\]"
+PS_COL4="\[$(tput setaf 4)\]"
+PS_COL5="\[$(tput setaf 5)\]"
+PS_COL12="\[$(tput setaf 12)\]"
+PS_COL14="\[$(tput setaf 14)\]"
+
+BASH_GIT_PS=1
+
+export PS1="$PS_BOLD$PS_COL5[$PS_COL12\u$PS_COL5@$PS_COL4\h $PS_COL1\W"
+[ "$BASH_GIT_PS" != 0 ] && export PS1="$PS1$PS_COL14\$(__git_ps1 \" %s\")"
+export PS1="$PS1$PS_COL5]$PS_NORM\\$ "
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
