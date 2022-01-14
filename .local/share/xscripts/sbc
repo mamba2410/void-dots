@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ "$1" = "256" ] && max=16 || max=1
+
+for (( i = 0; i < max; i++ )) ; do
+	for j in {0..15} ; do
+		num=$(( 16*i + j ))
+		echo -n "$(tput setaf $num)"
+		printf "%03d " $num
+	done
+	printf "\n"
+done
