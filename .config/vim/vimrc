@@ -1,53 +1,79 @@
-" .vimrc
+" vimrc
+" For use with neovim, but intended to mostly be compatible with regular vim
 
-" Get the defaults that most users want.
-"source $VIMRUNTIME/defaults.vim
-
-" Set directories for vim
-set nocompatible
-set undodir=$XDG_DATA_HOME/vim/undo
-set directory=$XDG_DATA_HOME/vim/swap
-set backupdir=$XDG_DATA_HOME/vim/backup
-set viminfo=%,<800,'10,/50,:100,h,f0,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-
-" Misc settings
-filetype plugin on
+filetype plugin on " filtype definitions here have priority
 set encoding=utf-8
 set number relativenumber
 
-" Text options
+" Vim directories
+set undodir=$XDG_DATA_HOME/vim/undo/
+set directory=$XDG_DATA_HOME/vim/swap/
+set backupdir=$XDG_DATA_HOME/vim/backup/
+
+
+" Vim info and runtime paths
+set viminfo=%,<800,'10,/50,:100,h,f0,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+
+
+" Tabs and formatting
 set tabstop=4
 set shiftwidth=4
-"autocmd filetype markdown set textwidth=120		" insert newline before 120 characters
-autocmd filetype markdown set textwidth=0			" insert newline 1 character before window end
+set expandtab         " Expand tabs as spaces
+"autocmd filetype markdown set textwidth=80         " insert newline before 80 characters
+"autocmd filetype markdown set textwidth=120        " insert newline before 120 characters
+autocmd filetype markdown set textwidth=0           " insert newline 1 character before window end
 autocmd filetype markdown set wrapmargin=1
-"autocmd filetype markdown set formatoptions+=t
-"autocmd filetype markdown set formatoptions-=l
 
-" Syntax highlighting
+
+" Colourschemes
 syntax on
 set t_Co=256
-colorscheme custom
 autocmd BufEnter * :syntax sync fromstart
+colorscheme custom
 
-" Set the status line
-set statusline=
-set statusline+=\ %r
-set statusline+=\ %m
-set statusline+=\ %y
-set statusline+=\ %F
-set statusline+=%=
-set statusline+=\ %c:%l/%L
-set statusline+=\ [%p%%]
+set statusline=\ %r\ %m\ %y\ %F\ %=\ %c:%l/%L\ [%p%%]
 
 
-" netrw things
-let g:netrw_banner=0
-let g:netrw_altv=1
-let g:netrw_liststyle=3
+" Leader key [default: \]
+let mapleader = " "
+
+"Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
+vnoremap <C-c> "+y
+map <C-p> "+P
+
+" Allow tab for choosing menu in insert mode
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <expr><Cr>  pumvisible() ? "\<C-y>" : "\<Cr>"
+
+" Clear highlights with <Esc> in normal mode
+nnoremap <esc> :noh<Cr><Esc>
+
+" Tab movement
+nnoremap <leader>h            gT
+nnoremap <leader>l            gt
+
+" Double space for navigation
+nnoremap <Space><Space> <Esc>/<++><CR>"_c4l
+
+" Run on write
+autocmd BufWritePre * %s/\s\+$//e                        " Remove whitespace at end of lines on write
+autocmd BufWritePost ~/.Xresources !xrdb %               " Reload xrdb
+autocmd BufWritePost ~/.config/X11/xresources !xrdb %    " Reload xrdb
+
+" Setting file types that vim doesn't recognise
+"autocmd BufNewFile,BufReadPost *.tex set filetype=tex
+autocmd BufNewFile,BufReadPost *.S set filetype=armasm
+autocmd BufNewFile,BufReadPost *.s set filetype=armasm
+
+
+" ===========================================================================
+" Plugins
+" ===========================================================================
 
 " vim-plug
+" TODO: If statement for new systems, move to separate file?
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'abudden/taghighlight-automirror'
 Plug 'shirk/vim-gas'
@@ -55,10 +81,14 @@ Plug 'NewLunarFire/wla-vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim'
+Plug 'ziglang/zig.vim'
+"Plug 'vim-pandoc/vim-pandoc'
 call plug#end()
 
-" misc plugin options
-let g:gasCppComments=1
+let g:gasCppComments=1 " gas allow // comments"
+
 let g:vim_markdown_frontmatter=1
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_math=1
@@ -66,49 +96,14 @@ let g:vim_markdown_strikethrough=1
 let g:vim_markdown_auto_insert_bullets=0
 let g:vim_markdown_new_list_item_indent=0
 
-
-" Syntax highlighting groups
-let asmsyntax='armasm'
-let filetype_inc='armasm'
-
-
-" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-vnoremap <C-c> "+y
-map <C-p> "+P
-
-" Set a bunch of leader things
-" Default leader is backslash (\)
-let mapleader = " "
-" map <leader>h <esc>:noh<CR>
+let g:ale_lint_on_enter = 0
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_completion_enabled = 1
 
 
-" Normal mode remaps
-nnoremap <esc> :noh<CR><esc>
-nnoremap <leader><left>		gT
-nnoremap <leader>h			gT	
-nnoremap <leader><right>	gt
-nnoremap <leader>l			gt
 
-" Press F10 to get the highlight group of token under cursor
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" Navigating with guides (from LukeSmithxyz)
-"inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-"vnoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-nnoremap <Space><Space> <Esc>/<++><CR>"_c4l
-
-
-" Auto run commands when things change
-autocmd BufWritePre * $s/\s\+$//e			" Remove whitespace at end of lines on write
-autocmd BufWritePost ~/.Xresources !xrdb %
-
-" Setting file types that vim doesn't recognise
-autocmd BufNewFile,BufReadPost *.tex set filetype=tex
-autocmd BufNewFile,BufReadPost *.S set filetype=armasm
-autocmd BufNewFile,BufReadPost *.s set filetype=armasm
-
-" Separate file for macros
+" Macros for certain file types
 source $XDG_CONFIG_HOME/vim/file_macros.vim
 
