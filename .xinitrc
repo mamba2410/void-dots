@@ -10,7 +10,8 @@ eval 'dbus-launch --sh-syntax --exit-with-session'
 
 xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
-xrandr --output DVI-D-1 --right-of HDMI-1
+#xrandr --output DVI-D-1 --right-of HDMI-1
+xrandr --output DVI-D-1 --left-of HDMI-1
 
 # Mouse sensitivity modifier, range [-1,+1], default 0
 #xinput --set-prop 11 'libinput Accel Speed' 0.8
