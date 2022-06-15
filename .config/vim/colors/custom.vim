@@ -40,6 +40,7 @@ hi Type	     		cterm=NONE	ctermfg=1
 
 " TagHighlight groups
 hi link Class 			Type
+hi link CTagsEnumerationValue Constant
 hi link DefinedName		Constant
 hi link Enumerator		Type
 hi link EnumerationName Constant
@@ -70,6 +71,8 @@ hi PmenuSel   	cterm=NONE	ctermfg=bg	ctermbg=15
 hi Question   	cterm=NONE	ctermfg=2
 hi Search		cterm=NONE	ctermfg=bg	ctermbg=fg
 hi SpecialKey	cterm=NONE	ctermfg=4
+hi SpellBad		cterm=NONE	ctermfg=bg	ctermbg=1
+hi SpellCap		cterm=NONE	ctermfg=bg	ctermbg=3
 hi StatusLine	cterm=bold	ctermfg=fg	ctermbg=7
 hi StatusLineNC	cterm=bold	ctermfg=15	ctermbg=7
 hi StatusLineTerm	cterm=NONE	ctermfg=fg	ctermbg=7
@@ -90,6 +93,10 @@ hi WildMenu   	cterm=NONE	ctermfg=bg	ctermbg=7
 " Extra groups
 hi markdownCode		cterm=NONE	ctermfg=10
 hi markdownLinkText	cterm=NONE	ctermfg=14
+
+"ALE
+hi ALEErrorSign		cterm=NONE	ctermfg=bg	ctermbg=1
+hi ALEWarninSign	cterm=NONE	ctermfg=bg	ctermbg=3
 
 " syntax highlighting
 source $XDG_CONFIG_HOME/vim/colors/custom-syntax.vim

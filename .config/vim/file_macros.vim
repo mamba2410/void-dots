@@ -24,3 +24,4 @@ autocmd filetype tex inoremap ~bi \begin{itemize}<CR>\item <CR>\end{itemize}<CR>
 autocmd filetype tex inoremap ~be \begin{enumerate}<CR>\item <CR>\end{enumerate}<CR><++><esc>kkA
 autocmd filetype tex inoremap ~m \begin{multicols}{2}<CR><CR>\end{multicols}<esc>kA
 autocmd filetype tex inoremap ~cm \chapter{}<CR>\begin{multicols}{2}<CR><++><CR>\end{multicols}<esc>3k0/{<CR>:noh<CR>a
+
