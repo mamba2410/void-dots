@@ -6,7 +6,7 @@ case $- in
       *) return;;
 esac
 
-# Put bash in vi mode, allows normal mode commands 
+# Put bash in vi mode, allows normal mode commands
 #set -o vi
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -56,16 +56,18 @@ eval "$(dircolors "$XDG_CONFIG_HOME"/dircolors)"
 PS_BOLD="\[$(tput bold)\]"
 PS_NORM="\[$(tput sgr0)\]"
 PS_COL1="\[$(tput setaf 1)\]"
+PS_COL2="\[$(tput setaf 2)\]"
 PS_COL4="\[$(tput setaf 4)\]"
 PS_COL5="\[$(tput setaf 5)\]"
+PS_COL10="\[$(tput setaf 10)\]"
 PS_COL12="\[$(tput setaf 12)\]"
 PS_COL14="\[$(tput setaf 14)\]"
 
 BASH_GIT_PS=1
 
-export PS1="$PS_BOLD$PS_COL5[$PS_COL12\u$PS_COL5@$PS_COL4\h $PS_COL1\W"
+export PS1="$PS_BOLD$PS_COL1[$PS_COL10\u$PS_COL1@$PS_COL2\h $PS_COL5\W"
 [ "$BASH_GIT_PS" != 0 ] && export PS1="$PS1$PS_COL14\$(__git_ps1 \" %s\")"
-export PS1="$PS1$PS_COL5]$PS_NORM\\$ "
+export PS1="$PS1$PS_COL1]$PS_NORM\\$ "
 
 
 # enable programmable completion features (you don't need to enable

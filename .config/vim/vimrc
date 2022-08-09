@@ -19,7 +19,7 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 " Tabs and formatting
 set tabstop=4
 set shiftwidth=4
-set expandtab         " Expand tabs as spaces
+set expandtab                                       " Expand tabs as spaces
 "autocmd filetype markdown set textwidth=80         " insert newline before 80 characters
 "autocmd filetype markdown set textwidth=120        " insert newline before 120 characters
 autocmd filetype markdown set textwidth=0           " insert newline 1 character before window end
@@ -82,9 +82,10 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim'
+"Plug 'neoclide/coc.nvim'
 Plug 'ziglang/zig.vim'
 "Plug 'vim-pandoc/vim-pandoc'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 let g:gasCppComments=1 " gas allow // comments"
