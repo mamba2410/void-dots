@@ -25,14 +25,24 @@ case $user_choice in
 	"m"|"M")
 		echo "Moving files"
 		for f in $target_names; do
+			dst="$destination_base/$f"
+
+			if [ "$(dirname $f)" = ".config" ]; then
+				dst="$XDG_CONFIG_HOME/$(basename $f)"
+			fi
 			[ -d $(dirname "$storage_base/$f") ] || mkdir -pv $(dirname "$storage_base/$f")
-			mv -v "$destination_base/$f" "$storage_base/$f"
+			mv -v $dst "$storage_base/$f"
 		done
 		;;
 	"d"|"D")
 		echo "Deleting files"
 		for f in $target_names; do
-			rm -vr "$destination_base/$f"
+			dst="$destination_base/$f"
+
+			if [ "$(dirname $f)" = ".config" ]; then
+				dst="$XDG_CONFIG_HOME/$(basename $f)"
+			fi
+			rm -rfv $dst
 		done
 		;;
 	"u"|"U")
@@ -41,20 +51,27 @@ case $user_choice in
 		;;
 esac
 
-echo "Creating directories for programs"
-mkdir -pv "$HOME/.local/share/vim/backup"
-mkdir -pv "$HOME/.local/share/vim/swap"
-mkdir -pv "$HOME/.local/share/vim/undo"
-mkdir -pv "$HOME/.local/share/vim/plugged"
-mkdir -pv "$HOME/.local/share/bash"
-mkdir -pv "$HOME/.local/share/xscripts.d"
-
 
 echo "Linking files to destination '$destination_base'"
 
 for f in $target_names; do
-	[ -d $(dirname "$destination_base/$f") ] || mkdir -pv $(dirname "$destination_base/$f")
-	ln -sfv "$target_base/$f" "$(dirname $destination_base/$f)"
+	src="$target_base/$f"
+	dst="$destination_base/$f"
+
+	if [ "$(dirname $f)" = ".config" ]; then
+		dst="$XDG_CONFIG_HOME/$(basename $f)"
+	fi
+
+	#[ -d $(dirname "$dst") ] || mkdir -pv $(dirname "$dst")
+	ln -sv $src $dst
+	#ln -sv $dst $src
 done
 
+echo "Creating directories for programs"
+mkdir -pv "$XDG_DATA_HOME/vim/backup"
+mkdir -pv "$XDG_DATA_HOME/vim/swap"
+mkdir -pv "$XDG_DATA_HOME/vim/undo"
+mkdir -pv "$XDG_DATA_HOME/vim/plugged"
+mkdir -pv "$XDG_DATA_HOME/bash"
+mkdir -pv "$XDG_DATA_HOME/xscripts.d"
 
