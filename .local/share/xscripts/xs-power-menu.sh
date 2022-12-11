@@ -1,33 +1,25 @@
 #!/bin/bash
 
-options="Shutdown\nReboot\nLogout\nLock\nExit i3\nKill all windows"
-choice=$( echo -e $options | rofi -dmenu -p "Power Menu" -theme "power_menu" )
+shutdown=""
+reboot=""
+lock=""
+
+options="$shutdown\n$reboot\n$lock"
+uptime=$(uptime | awk -F' |,' '{printf $5}' | awk -F":" '{printf $1 " hours, " $2 " minutes"}')
+
+choice=$( echo -e $options | rofi -dmenu -p "uptime: $uptime" -theme "power_menu" )
 case $choice in
-	"Shutdown")
+	"$shutdown")
 		echo "Shutting down..."
 		shutdown.sh shutdown
-		#sudo shutdown -h now
 		;;
-	"Reboot")
+	"$reboot")
 		echo "Rebooting..."
 		shutdown.sh reboot
-		#sudo shutdown -r now
 		;;
-	"Logout")
-		echo "Logging out..."
-		i3-msg exit
-		;;
-	"Lock")
+	"$lock")
 		echo "Locking screen..."
-		./lock_screen.sh
-		;;
-	"Kill all windows")
-		echo "Killing all windows"
-		i3-msg '[class=".*"] kill'
-		;;
-	"Exit i3")
-		echo "Exiting i3"
-		i3-msg exit
+		xs-lock-screen.sh
 		;;
 	*)
 		echo "No match found"

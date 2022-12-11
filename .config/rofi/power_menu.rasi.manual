@@ -1,0 +1,58 @@
+@import "colours.rasi"
+
+window {
+    transparency: "real";
+    location: "center";
+    anchor: "center";
+    fullscreen: false;
+
+    background-color: @background;
+    font: "Font Awesome 6 Solid";
+
+	width: 40ch;
+    border: 0px;
+    padding: 0.5ch;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 2ch;
+    passing: 2ch;
+
+    background-color: transparent;
+    children: ["inputbar", "listview"];
+}
+
+inputbar {
+    enabled: true;
+    background-color: #ff0000;
+    children: ["textbox-prompt-column", "prompt"];
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    str: "";
+    text-color: #00ff00;
+    expand: false;
+}
+
+prompt {
+    enabled: true;
+}
+
+message {
+
+}
+
+element {
+    enabled: true;
+    spacing: 0px;
+    margin: 0px;
+    padding: 40px 10px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: #ffff00;
+    background-color: #ff0000;
+    text-color: #ffffff;
+    cursor: pointer;
+}
