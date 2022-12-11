@@ -1,12 +1,14 @@
 #!/bin/sh
 [ -f $XDG_CONFIG_HOME/X11/xresources ] && xrdb -merge $XDG_CONFIG_HOME/X11/xresources
 
+
+## I have no idea what dbus is or how it works
+## See bottom of file
 #if test -x "$DBUS_SESSION_BUS_ADDRESS" ; then
 #	eval 'dbus-launch --sh-syntax --exit-with-session'
 #	echo "DBUS per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
 #fi
-
-eval 'dbus-launch --sh-syntax --exit-with-session'
+#eval 'dbus-launch --sh-syntax --exit-with-session'
 
 xset r rate 300 40
 setxkbmap gb -option "caps:swapescape"
@@ -27,4 +29,6 @@ feh --bg-scale "$XDG_DATA_HOME/wallpaper/wallpaper.png" &
 #$TERMINAL -n maths_python -e python -q &
 $XDG_DATA_HOME/xscripts/xs-dwm-status.sh &
 
-exec dwm
+#exec dwm
+## Exec dwm through dbus makes some things work, like notifications
+eval "dbus-launch --sh-syntax --exit-with-session dwm"
