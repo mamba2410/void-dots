@@ -20,5 +20,5 @@ if [ "$user_choice" = "y" ]; then
 	cd "$repo_destination"
 fi
 
-source "./.profile"
+source .profile
 ./linkfiles

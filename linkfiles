@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if [ -z "$XDG_CONFIG_HOME" ] || [ -z $XDG_DATA_HOME ]; then
+	echo "Error: XDG_CONFIG_HOME or XDG_DATA_HOME are not set"
+	exit 1
+fi
+
 target_names=$(cat targets)
 
 target_base="$(pwd)"
 destination_base="$HOME"
-storage_base="$HOME/.old_dots/$(date +'%y%m%d-%H%M%S')"
+storage_base="$HOME/.old_dots/$(date +'%Y%m%d-%H%M%S')"
 
 [ -z "$1" ] || target_base="$1"
 [ -z "$2" ] || destination_base="$2"
