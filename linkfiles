@@ -67,7 +67,7 @@ for f in $target_names; do
 		dst="$XDG_CONFIG_HOME/$(basename $f)"
 	fi
 
-	#[ -d $(dirname "$dst") ] || mkdir -pv $(dirname "$dst")
+	[ -d $(dirname "$dst") ] || mkdir -pv $(dirname "$dst")
 	ln -sv $src $dst
 	#ln -sv $dst $src
 done
